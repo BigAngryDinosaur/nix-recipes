@@ -1,5 +1,5 @@
 
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
 	imports = [
@@ -18,4 +18,21 @@
 			timeout = 5;
 		};
 	};
+
+	hardware = {
+		graphics.enable = true;
+		nvidia = {
+			modesetting.enable = true;
+			powerManagement = {
+				enable = false;
+				finegrained = false;
+			};
+			open = true;
+			nvidiaSettings = true;
+			package = config.boot.kernelPackages.nvidiaPackages.latest;
+		};
+	};
+
+	services.xserver.videoDrivers = ["nvidia"];
+
 }

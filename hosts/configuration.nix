@@ -56,7 +56,7 @@
 	nixpkgs.config.allowUnfree = true;
 
 	system = {
-		stateVersion = "24.11";
+		stateVersion = "25.05";
 	};
 
 	environment = {
@@ -65,20 +65,32 @@
 			wget
 			firefox
 			neovim
+			kitty
 		];
+
+		loginShellInit = ''
+			if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+				exec dbus-launch Hyprland
+			fi
+		'';
 	};
 
-	programs.hyprland = {
-		enable = true;
-		package = hyprland.packages.${pkgs.system}.hyprland;
-	};
 
 	home-manager.users.${vars.user.name} = {
+
 		home = {
-			stateVersion = "24.11";
+			stateVersion = "25.05";
 		};
+
 		programs = {
 			home-manager.enable = true;
+			kitty = true;
+		};
+		
+		wayland.windowManager.hyprland = {
+			enable = true;
+			package = hyprland.packages.${pkgs.system}.hyprland;
+			portalPackage = hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
 		};
 	};
 }
