@@ -28,16 +28,25 @@
 		};
 	};
 
-	hardware = {
-		pulseaudio.enable = false;
-	};
-
 	security.rtkit.enable = true;
-	services.pipewire = {
-		enable = true;
-		alsa.enable = true;
-		alsa.support32Bit = true;
-		pulse.enable = true;
+	services = {
+		pulseaudio.enable = false;
+		pipewire = {
+			enable = true;
+			alsa.enable = true;
+			alsa.support32Bit = true;
+			pulse.enable = true;
+		};
+		greetd = {
+			enable = true;
+			settings = {
+				default_session = {
+					command = "${config.programs.hyprland.package}/bin/Hyprland";
+					user = vars.user.name;
+				}
+				vt = 7;
+			};
+		};
 	};
 
 	nix = {
@@ -57,6 +66,21 @@
 
 	system = {
 		stateVersion = "25.05";
+	};
+
+	fonts.packages = with pkgs; [
+		carlito
+		vegur
+		source-code-pro
+		jetbrains-mono
+		font-awesome
+		corefonts
+		nerd-fonts.fira-code
+	];
+
+	console = {
+		font = "Lat2-Terminus16";
+		keyMap = "us";
 	};
 
 	environment = {
@@ -84,13 +108,31 @@
 
 		programs = {
 			home-manager.enable = true;
-			kitty = true;
+			kitty.enable = true;
 		};
 		
 		wayland.windowManager.hyprland = {
 			enable = true;
 			package = hyprland.packages.${pkgs.system}.hyprland;
 			portalPackage = hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+
+			settings = {
+				"$mod" = "SUPER";
+				bind = [
+					"SUPER,Return,exec,${pkgs.${vars.terminal}}/bin/${vars.terminal}"
+					"SUPER,Q,killactive,"
+					"SUPER,Escape,exit,"
+					"SUPER,F,togglefloating,"
+					"SUPER,h,movefocus,l"
+					"SUPER,l,movefocus,r"
+					"SUPER,k,movefocus,u"
+					"SUPER,j,movefocus,d"
+					"SUPERSHIFT,h,movewindow,l"
+					"SUPERSHIFT,l,movewindow,r"
+					"SUPERSHIFT,k,movewindow,u"
+					"SUPERSHIFT,j,movewindow,d"
+				];
+			};
 		};
 	};
 }

@@ -26,6 +26,8 @@
 			description = "Rusha";
 		};
 		location = "$HOME/.nixos-recipes";
+		terminal = "kitty";
+		editor = "nvim";
       };
       in
       {
