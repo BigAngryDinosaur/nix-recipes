@@ -2,6 +2,10 @@
 { config, lib, pkgs, stable, hyprland, inputs, vars, ... }:
 
 {
+	imports = (
+		import ../modules/desktops ++
+		import ../modules/styles
+	);
 
 	users.users.${vars.user.name} = {
 		isNormalUser = true;
@@ -28,6 +32,7 @@
 		};
 	};
 
+	
 	security.rtkit.enable = true;
 	services = {
 		pulseaudio.enable = false;
@@ -36,16 +41,6 @@
 			alsa.enable = true;
 			alsa.support32Bit = true;
 			pulse.enable = true;
-		};
-		greetd = {
-			enable = true;
-			settings = {
-				default_session = {
-					command = "${config.programs.hyprland.package}/bin/Hyprland";
-					user = vars.user.name;
-				}
-				vt = 7;
-			};
 		};
 	};
 
@@ -65,7 +60,7 @@
 	nixpkgs.config.allowUnfree = true;
 
 	system = {
-		stateVersion = "25.05";
+		stateVersion = "24.11";
 	};
 
 	fonts.packages = with pkgs; [
@@ -87,52 +82,40 @@
 		systemPackages = with pkgs; [
 			git
 			wget
-			firefox
 			neovim
 			kitty
+
+			alsa-utils
+			pavucontrol
+			pipewire
+			pulseaudio
+
+			firefox
+			google-chrome
+
+			pcmanfm
 		];
 
-		loginShellInit = ''
-			if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-				exec dbus-launch Hyprland
-			fi
-		'';
+	};
+
+	programs = {
+		_1password.enable = true;
+		_1password-gui = {
+			enable = true;
+			polkitPolicyOwners = [ "${vars.user.name}" ];
+		};
 	};
 
 
 	home-manager.users.${vars.user.name} = {
 
 		home = {
-			stateVersion = "25.05";
+			stateVersion = "24.11";
 		};
 
 		programs = {
 			home-manager.enable = true;
 			kitty.enable = true;
-		};
-		
-		wayland.windowManager.hyprland = {
-			enable = true;
-			package = hyprland.packages.${pkgs.system}.hyprland;
-			portalPackage = hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
-
-			settings = {
-				"$mod" = "SUPER";
-				bind = [
-					"SUPER,Return,exec,${pkgs.${vars.terminal}}/bin/${vars.terminal}"
-					"SUPER,Q,killactive,"
-					"SUPER,Escape,exit,"
-					"SUPER,F,togglefloating,"
-					"SUPER,h,movefocus,l"
-					"SUPER,l,movefocus,r"
-					"SUPER,k,movefocus,u"
-					"SUPER,j,movefocus,d"
-					"SUPERSHIFT,h,movewindow,l"
-					"SUPERSHIFT,l,movewindow,r"
-					"SUPERSHIFT,k,movewindow,u"
-					"SUPERSHIFT,j,movewindow,d"
-				];
-			};
 		};
 	};
 }

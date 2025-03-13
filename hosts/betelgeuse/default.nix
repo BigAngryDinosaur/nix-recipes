@@ -35,4 +35,5 @@
 
 	services.xserver.videoDrivers = ["nvidia"];
 
+	hyprland.enable = true;
 }
