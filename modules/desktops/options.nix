@@ -4,6 +4,11 @@
 with lib;
 {
 	options = {
-		wlwm = mkEnableOption "Enable Wayland";
+		wlwm = {
+			enable = mkOption {
+				type = types.bool;
+				default = false;
+			};
+		};
 	};
 }

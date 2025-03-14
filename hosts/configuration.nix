@@ -4,7 +4,9 @@
 {
 	imports = (
 		import ../modules/desktops ++
-		import ../modules/styles
+		import ../modules/styles ++
+		import ../modules/shell ++ 
+		import ../modules/programs
 	);
 
 	users.users.${vars.user.name} = {
@@ -80,7 +82,6 @@
 
 	environment = {
 		systemPackages = with pkgs; [
-			git
 			wget
 			neovim
 			kitty

@@ -214,6 +214,7 @@ with host;
 							"SUPER,M,exec,${pkgs.hyprlock}/bin/hyprlock"
 						      	"SUPER,E,exec,${pkgs.pcmanfm}/bin/pcmanfm"
 							"SUPER,F,togglefloating,"
+							"SUPER,V,fullscreen, 1"
 							"SUPER,Space,exec, pkill wofi || ${pkgs.wofi}/bin/wofi --show drun"
 						      	"SUPER,R,forcerendererreload"
 							"SUPERSHIFT,R,exec,${config.programs.hyprland.package}/bin/hyprctl reload"

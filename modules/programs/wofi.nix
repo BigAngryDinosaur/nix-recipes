@@ -7,7 +7,7 @@ let
 in
 {
   config = lib.mkIf (config.wlwm.enable) {
-    home-manager.users.${vars.user} = {
+    home-manager.users.${vars.user.name} = {
       home = {
         packages = with pkgs; [
           wofi
