@@ -23,7 +23,13 @@ in
 		specialArgs = {
 			inherit inputs system stable hyprland vars;
 			host = {
-				hostName = "betelgeuse";
+				name = "betelgeuse";
+				monitors = {
+					tv = "HDMI-A-1";
+					left = "DP-3";
+					middle = "HDMI-A-2";
+					right = "DP-2";
+				};
 			};
 		};
 		modules = [

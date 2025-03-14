@@ -29,7 +29,7 @@
 
 		networking = {
 			useDHCP = lib.mkDefault true;
-			hostName = host.hostName;
+			hostName = host.name;
 			networkmanager = {
 				enable = true;
 			};
