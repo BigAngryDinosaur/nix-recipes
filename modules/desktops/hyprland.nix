@@ -70,6 +70,9 @@ with host;
 			'';
 			in
 			{
+				imports = [
+					hyprland.homeManagerModules.default
+				];
 
 				programs.hyprlock = {
 					enable = true;
@@ -255,6 +258,7 @@ with host;
 
 						exec-once = [
 							"${pkgs.hyprlock}/bin/hyprlock"
+							"${pkgs.waybar}/bin/waybar -c $HOME/.config/waybar/config"
 						];
 					};
 				};

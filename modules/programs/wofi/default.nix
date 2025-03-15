@@ -3,7 +3,7 @@
 { config, lib, pkgs, vars, ... }:
 
 let
-  colors = import ../styles/colors.nix;
+  colors = import ../../styles/colors.nix;
 in
 {
   config = lib.mkIf (config.wlwm.enable) {
@@ -17,22 +17,19 @@ in
       home.file = with colors.scheme.default.hex; {
         ".config/wofi/config" = {
           text = ''
-            width=100%
-            height=27
-            xoffset=0
-            yoffset=-27
-            location=1
-            prompt=Search...
-            filter_rate=100
-            allow_markup=false
-            no_actions=true
-            halign=fill
-            orientation=horizontal
-            content_halign=fill
-            insensitive=true
-            allow_images=true
-            image_size=10
-            hide_scroll=true
+		width=100%
+		height=250
+		location=center
+		prompt=Search...
+		filter_rate=100
+		allow_markup=true
+		no_actions=true
+		halign=fill
+		orientation=vertical
+		content_halign=fill
+		insensitive=true
+		allow_images=true
+		image_size=40
           '';
         };
         ".config/wofi/style.css" = {

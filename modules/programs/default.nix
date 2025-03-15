@@ -1,4 +1,5 @@
 
 [
-	./wofi.nix
+	./wofi
+	./waybar
 ]
