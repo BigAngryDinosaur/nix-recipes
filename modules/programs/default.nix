@@ -2,4 +2,5 @@
 [
 	./wofi
 	./waybar
+	./spotify
 ]
