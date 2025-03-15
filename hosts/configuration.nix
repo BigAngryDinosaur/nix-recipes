@@ -83,7 +83,6 @@
 	environment = {
 		systemPackages = with pkgs; [
 			wget
-			neovim
 			kitty
 			ripgrep
 

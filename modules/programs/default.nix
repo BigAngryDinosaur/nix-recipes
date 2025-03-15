@@ -3,4 +3,5 @@
 	./wofi
 	./waybar
 	./spotify
+	./neovim
 ]
