@@ -4,4 +4,5 @@
 	./waybar
 	./spotify
 	./neovim
+    ./ghostty
 ]
