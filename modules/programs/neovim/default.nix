@@ -163,9 +163,7 @@
         web-devicons.enable = true;
         gitgutter = {
           enable = true;
-          settings = {
-            map_keys = false;
-          };
+          settings = { map_keys = false; };
         };
         mini = {
           enable = true;
@@ -183,7 +181,6 @@
             indentscope = { };
             cursorword = { };
 
-
           };
         };
 
@@ -192,41 +189,27 @@
           settings.scope.enabled = false;
         };
 
-        flash = {
-          enable = true;
-        };
+        flash = { enable = true; };
 
         telescope = {
           enable = true;
-          settings = {
-            pickers.find_files = {
-              hidden = true;
-            };
-          };
+          settings = { pickers.find_files = { hidden = true; }; };
           keymaps = {
             "<leader>ff" = {
               action = "find_files";
-              options = {
-                desc = "Find File";
-              };
+              options = { desc = "Find File"; };
             };
             "<leader>fg" = {
               action = "live_grep";
-              options = {
-                desc = "Find Via Grep";
-              };
+              options = { desc = "Find Via Grep"; };
             };
             "<leader>fb" = {
               action = "buffers";
-              options = {
-                desc = "Find Buffers";
-              };
+              options = { desc = "Find Buffers"; };
             };
             "<leader>fh" = {
               action = "help_tags";
-              options = {
-                desc = "Find Help";
-              };
+              options = { desc = "Find Help"; };
             };
           };
         };
@@ -238,11 +221,7 @@
           window.width = 30;
           closeIfLastWindow = true;
           extraOptions = {
-            filesystem = {
-              filtered_items = {
-                visible = true;
-              };
-            };
+            filesystem = { filtered_items = { visible = true; }; };
           };
         };
 
@@ -251,7 +230,8 @@
           nixvimInjections = true;
           folding = false;
           nixGrammars = true;
-          grammarPackages = pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
+          grammarPackages =
+            pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
           settings = {
             ensure_installed = "all";
             highlight.enable = true;
@@ -259,9 +239,7 @@
             indent.enable = true;
           };
         };
-        treesitter-refactor = {
-          enable = true;
-        };
+        treesitter-refactor = { enable = true; };
 
         lsp = {
           enable = true;
@@ -284,7 +262,6 @@
                 enable = true;
                 disableTsServerFormatter = true;
               };
-              nixpkgs_fmt.enable = true;
               markdownlint.enable = true;
             };
           };

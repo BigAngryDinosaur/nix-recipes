@@ -95,6 +95,11 @@
 			google-chrome
 
 			pcmanfm
+
+            coreutils
+            gnumake
+            cmake
+            gcc
 		];
 
 	};
