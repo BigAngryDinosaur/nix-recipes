@@ -155,6 +155,41 @@
                     action = "<C-\\><C-n>";
                     options.desc = "Exit terminal mode";
                 }
+                {
+                    key = "s";
+                    mode = [ "n" "x" "o" ];
+                    action = "function() require('flash').jump() end";
+                    lua = true;
+                    options = { desc = "Flash"; };
+                }
+                {
+                    key = "S";
+                    mode = [ "n" "x" "o" ];
+                    action = "function() require('flash').treesitter() end";
+                    lua = true;
+                    options = { desc = "Flash Treesitter"; };
+                }
+                {
+                    key = "r";
+                    mode = "o";
+                    action = "function() require('flash').remote() end";
+                    lua = true;
+                    options = { desc = "Remote Flash"; };
+                }
+                {
+                    key = "R";
+                    mode = [ "o" "x" ];
+                    action = "function() require('flash').treesitter_search() end";
+                    lua = true;
+                    options = { desc = "Treesitter Search"; };
+                }
+                {
+                    key = "<c-s>";
+                    mode = "c";
+                    action = "function() require('flash').toggle() end";
+                    lua = true;
+                    options = { desc = "Toggle Flash Search"; };
+                }
             ];
 
             plugins = {
