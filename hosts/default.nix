@@ -2,7 +2,7 @@
 
 let
     inherit (systemSettings) system;
-    inherit (inputs) nixpkgs home-manager stylix;
+    inherit (inputs) nixpkgs home-manager stylix niri;
 
 	lib = nixpkgs.lib;
 in
@@ -33,6 +33,7 @@ in
 			}
 
             stylix.nixosModules.stylix
+            niri.nixosModules.niri
 		];
 	};
 }

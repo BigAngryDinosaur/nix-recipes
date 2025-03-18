@@ -41,5 +41,11 @@ in
                 desktop = 12;
             };
         };
+
+        stylix.cursor.package = pkgs.phinger-cursors;
+        stylix.cursor.name = "phinger-cursors-dark";
+        stylix.cursor.size = 24;
+
+        stylix.opacity.terminal = 0.9;
     };
 }
