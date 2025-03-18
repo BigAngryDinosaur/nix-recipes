@@ -1,5 +1,5 @@
 
-{ config, lib, pkgs, vars, host, ... }:
+{ config, lib, pkgs, userSettings, host, ... }:
 
 let
 colors = import ../../styles/colors.nix;
@@ -11,11 +11,10 @@ with host;
 			waybar
 		];
 
-		home-manager.users.${vars.user.name} = with colors.scheme.default; {
+		home-manager.users.${userSettings.username} = with colors.scheme.default; {
 			programs.waybar = {
 				enable = true;
 				package = pkgs.waybar;
-
 
 				settings = {
 					Main = {

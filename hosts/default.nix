@@ -1,15 +1,15 @@
-
-{ inputs, nixpkgs, nixpkgs-stable, nixos-hardware, home-manager, hyprland, vars, ... }:
+{ inputs, userSettings, systemSettings, ... }:
 
 let
-	system = "x86_x64-linux";
+    inherit (systemSettings) system;
+    inherit (inputs) nixpkgs nixpkgs-stable home-manager;
 
 	pkgs = import nixpkgs {
 		inherit system;
 		config.allowUnfree = true;
 	};
 
-	stable = import nixpkgs-stable {
+	pkgs-stable = import nixpkgs-stable {
 		inherit system;
 		config.allowUnfree = true;
 	};
@@ -17,11 +17,12 @@ let
 	lib = nixpkgs.lib;
 
 in
+
 {
 	betelgeuse = lib.nixosSystem {
-		inherit system;
+        inherit system;
 		specialArgs = {
-			inherit inputs system stable hyprland vars;
+			inherit inputs userSettings systemSettings;
 			host = {
 				name = "betelgeuse";
 				monitors = {

@@ -1,6 +1,6 @@
-{ pkgs, vars, ... } : {
+{ pkgs, userSettings, ... } : {
 	
-	home-manager.users.${vars.user.name} = {
+	home-manager.users.${userSettings.username} = {
 
 		home = {
 			packages = with pkgs; [

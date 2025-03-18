@@ -1,7 +1,7 @@
-{ config, lib, inputs, pkgs, vars, ... }:
+{ config, lib, inputs, pkgs, userSettings, ... }:
 
 {
-  home-manager.users.${vars.user.name} = {
+  home-manager.users.${userSettings.username} = {
 
     imports = [ inputs.nixvim.homeManagerModules.nixvim ];
 

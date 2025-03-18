@@ -1,7 +1,7 @@
-{ inputs, pkgs, vars, ... }:
+{ inputs, pkgs, userSettings, ... }:
 
 {
-  home-manager.users.${vars.user.name} = {
+  home-manager.users.${userSettings.username} = {
     home = {
       packages = with pkgs; [
         inputs.ghostty.packages.${pkgs.system}.default

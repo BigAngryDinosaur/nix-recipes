@@ -1,10 +1,14 @@
-{ config, lib, pkgs, inputs, hyprland, vars, host, ... }:
+{ config, lib, inputs, pkgs, userSettings, host, ... }:
 
 let
+    inherit (inputs) hyprland;
+    inherit (lib) mkEnableOption mkIf;
+    inherit (host) monitors;
+
     colors = import ../styles/colors.nix;
     cfg = config.hyprland;
-in with lib;
-with host; {
+in
+    {
     options = { hyprland.enable = mkEnableOption "Enable Hyprland"; };
 
     config = mkIf cfg.enable {
@@ -38,13 +42,13 @@ with host; {
             settings = {
                 default_session = {
                     command = "${config.programs.hyprland.package}/bin/Hyprland";
-                    user = vars.user.name;
+                    user = userSettings.username;
                 };
                 vt = 7;
             };
         };
 
-        home-manager.users.${vars.user.name} =
+        home-manager.users.${userSettings.username} =
 
             let
                 lockScript = pkgs.writeShellScript "lock-script" ''
@@ -60,11 +64,6 @@ with host; {
           '';
             in {
                 imports = [ hyprland.homeManagerModules.default ];
-
-                home = {
-                    packages = with pkgs; [
-                    ];
-                };
 
                 programs.hyprlock = {
                     enable = true;
@@ -204,7 +203,7 @@ with host; {
                         bind = [
 
                             # Apps
-                            "SUPER,Return,exec,${pkgs.${vars.terminal}}/bin/${vars.terminal}"
+                            "SUPER,Return,exec,${pkgs.${userSettings.terminal}}/bin/${userSettings.terminal}"
                             "SUPERSHIFT,E,exec,${pkgs.pcmanfm}/bin/pcmanfm"
                             #"SUPER,E,exec,${pkgs.pcmanfm}/bin/pcmanfm"
 
@@ -277,6 +276,5 @@ with host; {
                     };
                 };
             };
-
     };
 }

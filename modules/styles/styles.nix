@@ -1,8 +1,8 @@
 
-{ pkgs, vars, ... }:
+{ pkgs, userSettings, ... }:
 
 {
-	home-manager.users.${vars.user.name} = {
+	home-manager.users.${userSettings.username} = {
 		home = {
 			file = {
 				".config/media".source = ./media;

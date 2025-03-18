@@ -1,5 +1,5 @@
 
-{ config, lib, pkgs, stable, hyprland, inputs, vars, ... }:
+{ config, lib, pkgs, inputs, userSettings, systemSettings, ... }:
 
 {
 	imports = (
@@ -9,28 +9,28 @@
 		import ../modules/programs
 	);
 
-	users.users.${vars.user.name} = {
+	users.users.${userSettings.username} = {
 		isNormalUser = true;
-		description = "${vars.user.description}";
+		description = "${userSettings.name}";
 		extraGroups = [ "networkmanager" "wheel" ];
 	};
 
 	time = {
-		timeZone = "Asia/Tokyo";
+		timeZone = "${systemSettings.timeZone}";
 	};
 
 	i18n = {
-		defaultLocale = "en_US.UTF-8";
+		defaultLocale = "${systemSettings.locale}";
 		extraLocaleSettings = {
-			LC_ADDRESS = "en_US.UTF-8";
-			LC_IDENTIFICATION = "en_US.UTF-8";
-			LC_MEASUREMENT = "en_US.UTF-8";
-			LC_MONETARY = "en_US.UTF-8";
-			LC_NAME = "en_US.UTF-8";
-			LC_NUMERIC = "en_US.UTF-8";
-			LC_PAPER = "en_US.UTF-8";
-			LC_TELEPHONE = "en_US.UTF-8";
-			LC_TIME = "en_US.UTF-8";
+			LC_ADDRESS = "${systemSettings.locale}";
+			LC_IDENTIFICATION = "${systemSettings.locale}";
+			LC_MEASUREMENT = "${systemSettings.locale}";
+			LC_MONETARY = "${systemSettings.locale}";
+			LC_NAME = "${systemSettings.locale}";
+			LC_NUMERIC = "${systemSettings.locale}";
+			LC_PAPER = "${systemSettings.locale}";
+			LC_TELEPHONE = "${systemSettings.locale}";
+			LC_TIME = "${systemSettings.locale}";
 		};
 	};
 
@@ -83,7 +83,6 @@
 	environment = {
 		systemPackages = with pkgs; [
 			wget
-			kitty
 			ripgrep
 
 			alsa-utils
@@ -97,9 +96,6 @@
 			pcmanfm
 
             coreutils
-            gnumake
-            cmake
-            gcc
 		];
 
 	};
@@ -109,12 +105,12 @@
 		_1password.enable = true;
 		_1password-gui = {
 			enable = true;
-			polkitPolicyOwners = [ "${vars.user.name}" ];
+			polkitPolicyOwners = [ "${userSettings.username}" ];
 		};
 	};
 
 
-	home-manager.users.${vars.user.name} = {
+	home-manager.users.${userSettings.username} = {
 
 		home = {
 			stateVersion = "24.11";
@@ -122,7 +118,6 @@
 
 		programs = {
 			home-manager.enable = true;
-			kitty.enable = true;
 		};
 	};
 }

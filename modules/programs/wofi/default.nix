@@ -1,13 +1,13 @@
 
 
-{ config, lib, pkgs, vars, ... }:
+{ config, lib, pkgs, userSettings, ... }:
 
 let
   colors = import ../../styles/colors.nix;
 in
 {
   config = lib.mkIf (config.wlwm.enable) {
-    home-manager.users.${vars.user.name} = {
+    home-manager.users.${userSettings.username} = {
       home = {
         packages = with pkgs; [
           wofi
