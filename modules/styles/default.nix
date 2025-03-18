@@ -1,4 +1,5 @@
 
 [
 	./styles.nix
+    ./stylix.nix
 ]

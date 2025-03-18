@@ -13,6 +13,7 @@
                 fd
                 jq
                 bat
+                ripgrep
             ];
         };
     };
@@ -28,7 +29,7 @@
             shellAliases = {
 
                 # Eza
-                l = "eza -laH --icons";
+                l = "eza -laH --icons=auto";
                 lg = "eza -lH --git";
                 lt = "eza -T";
 

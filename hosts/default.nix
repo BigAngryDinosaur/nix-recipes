@@ -1,28 +1,17 @@
-{ inputs, userSettings, systemSettings, ... }:
+{ inputs, pkgs, pkgs-stable, userSettings, systemSettings, ... }:
 
 let
     inherit (systemSettings) system;
-    inherit (inputs) nixpkgs nixpkgs-stable home-manager;
-
-	pkgs = import nixpkgs {
-		inherit system;
-		config.allowUnfree = true;
-	};
-
-	pkgs-stable = import nixpkgs-stable {
-		inherit system;
-		config.allowUnfree = true;
-	};
+    inherit (inputs) nixpkgs home-manager stylix;
 
 	lib = nixpkgs.lib;
-
 in
 
 {
 	betelgeuse = lib.nixosSystem {
         inherit system;
 		specialArgs = {
-			inherit inputs userSettings systemSettings;
+			inherit inputs pkgs-stable userSettings systemSettings;
 			host = {
 				name = "betelgeuse";
 				monitors = {
@@ -36,12 +25,14 @@ in
 		modules = [
 			./betelgeuse
 			./configuration.nix
-			
+
 			home-manager.nixosModules.home-manager
 			{
 				home-manager.useGlobalPkgs = true;
 				home-manager.useUserPackages = true;
 			}
+
+            stylix.nixosModules.stylix
 		];
 	};
 }

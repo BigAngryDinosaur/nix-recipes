@@ -82,20 +82,29 @@
 
 	environment = {
 		systemPackages = with pkgs; [
+            # Utils
+            coreutils
 			wget
-			ripgrep
 
+            # A/V
 			alsa-utils
 			pavucontrol
 			pipewire
 			pulseaudio
+            vlc
+            mpv
+            feh
 
+            # Browsers
 			firefox
 			google-chrome
 
+            # File Management
 			pcmanfm
-
-            coreutils
+            p7zip
+            zip
+            unzip
+            unrar
 		];
 
 	};

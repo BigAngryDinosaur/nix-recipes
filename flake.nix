@@ -12,6 +12,10 @@
                 browser = "firefox";
                 editor = "nvim";
                 terminal = "ghostty";
+                font = {
+                    name = "Intel One Mono";
+                    pkg = pkgs.intel-one-mono;
+                };
             };
 
             systemSettings = {
@@ -20,11 +24,21 @@
                 locale = "en_US.UTF-8";
             };
 
+            pkgs = import inputs.nixpkgs {
+                system = systemSettings.system;
+                config.allowUnfree = true;
+            };
+
+            pkgs-stable = import inputs.nixpkgs-stable {
+                system = systemSettings.system;
+                config.allowUnfree = true;
+            };
+
         in
             {
             nixosConfigurations = (
                 import ./hosts {
-                    inherit inputs userSettings systemSettings; 
+                    inherit inputs pkgs pkgs-stable userSettings systemSettings; 
                 }
             );
         };

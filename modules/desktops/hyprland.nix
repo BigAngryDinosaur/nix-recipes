@@ -5,7 +5,6 @@ let
     inherit (lib) mkEnableOption mkIf;
     inherit (host) monitors;
 
-    colors = import ../styles/colors.nix;
     cfg = config.hyprland;
 in
     {
