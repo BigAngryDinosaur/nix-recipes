@@ -26,11 +26,11 @@ in
             };
         };
 
-        home-manager.users.${userSettings.username} = {
+        nixpkgs.overlays = [
+            inputs.niri.overlays.niri
+        ];
 
-            nixpkgs.overlays = [
-                inputs.niri.overlays.niri
-            ];
+        home-manager.users.${userSettings.username} = {
 
             imports = [
                 inputs.niri.homeModules.niri

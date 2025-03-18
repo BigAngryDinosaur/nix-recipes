@@ -66,42 +66,6 @@ in
 
                 programs.hyprlock = {
                     enable = true;
-                    settings = {
-                        background = [{
-                            monitor = "";
-                            path = "$HOME/.config/media/wall.png";
-                            color = "rgba(25, 20, 20, 1.0)";
-                            blur_passes = 1;
-                            blur_size = 0;
-                            brightness = 0.2;
-                        }];
-                        input-field = [{
-                            monitor = "";
-                            size = "250, 60";
-                            outline_thickness = 2;
-                            dots_size = 0.2;
-                            dots_spacing = 0.2;
-                            dots_center = true;
-                            outer_color = "rgba(0, 0, 0, 0)";
-                            inner_color = "rgba(0, 0, 0, 0.5)";
-                            font_color = "rgb(200, 200, 200)";
-                            fade_on_empty = false;
-                            placeholder_text = ''
-                <i><span foreground="##cdd6f4">Say the magic word...</span></i>'';
-                            hide_input = false;
-                            position = "0, -120";
-                            halign = "center";
-                            valign = "center";
-                        }];
-                        label = [{
-                            monitor = "";
-                            text = "$TIME";
-                            font_size = 120;
-                            position = "0, 80";
-                            valign = "center";
-                            halign = "center";
-                        }];
-                    };
                 };
 
                 services.hypridle = {
@@ -132,9 +96,6 @@ in
                     enable = true;
                     settings = {
                         ipc = true;
-                        splash = false;
-                        preload = "$HOME/.config/media/wall.png";
-                        wallpaper = ",$HOME/.config/media/wall.png";
                     };
                 };
 

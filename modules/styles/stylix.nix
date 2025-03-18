@@ -7,14 +7,9 @@ let
     backgroundSha256 = builtins.readFile (./. + "../../../themes" + ("/" + theme) + "/backgroundsha256.txt");
 in
     {
-    stylix = {
-        enable = false;
-    };
-
     home-manager.users.${userSettings.username} = {
 
-        imports = [ inputs.stylix.homeManagerModules.stylix ];
-
+        stylix.enable = true;
         stylix.polarity = themePolarity;
         stylix.image = pkgs.fetchurl {
             url = backgroundUrl;
@@ -24,16 +19,16 @@ in
 
         stylix.fonts = {
             monospace = {
-                name = userSettings.font;
-                package = userSettings.fontPkg;
+                name = userSettings.font.name;
+                package = userSettings.font.pkg;
             };
             serif = {
-                name = userSettings.font;
-                package = userSettings.fontPkg;
+                name = userSettings.font.name;
+                package = userSettings.font.pkg;
             };
             sansSerif = {
-                name = userSettings.font;
-                package = userSettings.fontPkg;
+                name = userSettings.font.name;
+                package = userSettings.font.pkg;
             };
             emoji = {
                 name = "Noto Emoji";
