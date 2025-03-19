@@ -2,14 +2,18 @@
 { config, lib, pkgs, userSettings, host, ... }:
 
 let
-colors = import ../../styles/colors.nix;
+    colors = import ../../styles/colors.nix;
+
+    inherit (lib) mkEnableOption mkIf;
+
+    cfg = config.waybar;
 in
-with host;
 {
-	config = lib.mkIf (config.wlwm.enable) {
-		environment.systemPackages = with pkgs; [
-			waybar
-		];
+    options = {
+        waybar.enable = mkEnableOption "Enable Waybar";
+    };
+
+	config = mkIf cfg.enable {
 
 		home-manager.users.${userSettings.username} = with colors.scheme.default; {
 			programs.waybar = {

@@ -11,7 +11,8 @@ in
     options = { hyprland.enable = mkEnableOption "Enable Hyprland"; };
 
     config = mkIf cfg.enable {
-        wlwm.enable = true;
+        wofi.enable = true;
+        waybar.enable = true;
 
         environment = let exec = "exec dbus-launch Hyprland";
         in {

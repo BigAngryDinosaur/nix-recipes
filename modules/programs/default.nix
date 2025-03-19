@@ -1,5 +1,6 @@
 
 [
+    ./kanata
 	./wofi
 	./waybar
 	./spotify

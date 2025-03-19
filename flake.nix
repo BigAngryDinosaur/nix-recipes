@@ -14,7 +14,7 @@
                 terminal = "ghostty";
                 font = {
                     name = "Intel One Mono";
-                    pkg = pkgs.intel-one-mono;
+                    pkg = pkgs-unstable.intel-one-mono;
                 };
             };
 
@@ -24,7 +24,7 @@
                 locale = "en_US.UTF-8";
             };
 
-            pkgs = import inputs.nixpkgs {
+            pkgs-unstable = import inputs.nixpkgs {
                 system = systemSettings.system;
                 config.allowUnfree = true;
             };
@@ -38,7 +38,7 @@
             {
             nixosConfigurations = (
                 import ./hosts {
-                    inherit inputs pkgs pkgs-stable userSettings systemSettings; 
+                    inherit inputs pkgs-stable userSettings systemSettings; 
                 }
             );
         };

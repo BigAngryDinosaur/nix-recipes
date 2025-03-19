@@ -60,7 +60,7 @@
 	};
 
 	system = {
-		stateVersion = "24.11";
+		stateVersion = "25.05";
 	};
 
 	fonts.packages = with pkgs; [
@@ -121,7 +121,7 @@
 	home-manager.users.${userSettings.username} = {
 
 		home = {
-			stateVersion = "24.11";
+			stateVersion = "25.05";
 		};
 
 		programs = {

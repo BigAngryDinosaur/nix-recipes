@@ -13,7 +13,9 @@ in
     };
 
     config = mkIf cfg.enable {
-        wlwm.enable = true;
+
+        wofi.enable = true;
+        waybar.enable = true;
 
         services.greetd = {
             enable = true;
