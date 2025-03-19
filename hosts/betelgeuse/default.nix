@@ -35,6 +35,6 @@
 
 	services.xserver.videoDrivers = ["nvidia"];
 
-    #hyprland.enable = true;
-    niri.enable = true;
+    hyprland.enable = true;
+    #niri.enable = true;
 }

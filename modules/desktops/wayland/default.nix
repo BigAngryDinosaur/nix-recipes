@@ -43,11 +43,6 @@
                 prettyName = "Niri";
                 comment = "Niri managed by UWSM";
             };
-            hyprland = {
-                binPath = "/run/current-system/sw/bin/Hyprland";
-                prettyName = "Hyprland";
-                comment = "Hyprland managed by UWSM";
-            };
         };
     };
 }
