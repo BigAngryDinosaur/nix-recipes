@@ -17,17 +17,6 @@ in
         wofi.enable = true;
         waybar.enable = true;
 
-        services.greetd = {
-            enable = true;
-            settings = {
-                default_session = {
-                    command = "${pkgs.niri}/bin/niri-session";
-                    user = userSettings.username;
-                };
-                vt = 7;
-            };
-        };
-
         programs.niri = {
             enable = true;
             package = pkgs.niri;
@@ -37,11 +26,30 @@ in
             inputs.niri.overlays.niri
         ];
 
-        home-manager.users.${userSettings.username} = {
+        home-manager.users.${userSettings.username} = let
+            makeCommand = command: {
+                command = [command];
+            } ;
+            in
+            {
 
             programs.niri = {
 
                 settings = {
+
+                    spawn-at-startup = [
+                        (makeCommand "uwsm finalize")
+                        (makeCommand "hyprlock")
+                        (makeCommand "waybar")
+                    ];
+
+                    input = {
+                        keyboard.xkb.layout = "us";
+                        focus-follows-mouse.enable = true;
+                        warp-mouse-to-focus = true;
+                        workspace-auto-back-and-forth = true;
+                    };
+
                     outputs = {
                         "${toString monitors.left}" = {
                             scale = 1.0;
@@ -87,8 +95,8 @@ in
                     binds = {
                         "Mod+Return".action.spawn = "${pkgs.ghostty}/bin/ghostty";
                         "Mod+P".action.spawn = "${pkgs.firefox}/bin/firefox";
-                        "Mod+Space".action.spawn = "wofi --show drun";
-                        "Ctrl+Alt+L".action.spawn = "sh -c pgrep hyprlock || hyprlock";
+                        "Mod+Space".action.spawn = "wofi";
+                        "Ctrl+Alt+L".action.spawn = "hyprlock";
 
                         "Mod+Q".action.close-window = [];
                         "Mod+R".action.switch-preset-column-width = [];

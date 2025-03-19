@@ -1,5 +1,4 @@
 
 [
-	./hyprland.nix
-	./niri.nix
+    ./wayland
 ]
