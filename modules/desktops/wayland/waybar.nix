@@ -43,12 +43,27 @@ in
                             layer = "top";
                             modules-left = [
                                 "image"
-                                "niri/workspaces"
                                 "idle_inhibitor"
+                            ] ++ (if config.niri.enable then
+                                [
+                                "niri/workspaces"
                                 "niri/window"
-                            ];
+                                ]
+                            else if config.hyprland.enable then
+                                    [
+                                    "hyprland/workspaces"
+                                    "hyprland/window"
+                                ]
+                            else []
+                                );
                             modules-center = ["clock#date" "clock"];
                             modules-right = ["network" "bluetooth" "battery"];
+
+                            image = {
+                                path = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
+                                size = 24;
+                                tooltip = false;
+                            };
 
                             battery = {
                                 interval = 5;

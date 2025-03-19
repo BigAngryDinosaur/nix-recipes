@@ -38,7 +38,6 @@ in
         };
 
         programs.hyprland.enable = true;
-        programs.hyprland.withUWSM  = true;    
 
         home-manager.users.${userSettings.username} = {
 
