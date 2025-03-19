@@ -47,5 +47,7 @@ in
         stylix.cursor.size = 24;
 
         stylix.opacity.terminal = 0.9;
+
+        stylix.targets.niri.enable = true;
     };
 }

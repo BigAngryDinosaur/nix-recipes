@@ -13,6 +13,7 @@ in
     config = mkIf cfg.enable {
         wofi.enable = true;
         waybar.enable = true;
+        hyprpaper.enable = true;
 
         environment = let exec = "exec dbus-launch Hyprland";
         in {
@@ -28,7 +29,6 @@ in
             sessionVariables = { };
 
             systemPackages = with pkgs; [
-                hyprpaper
                 hyprcursor
                 xwayland
                 nwg-look

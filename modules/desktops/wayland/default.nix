@@ -5,7 +5,9 @@
         ./hyprland.nix
         ./niri.nix
         ./wofi.nix
+        ./swww.nix
         ./waybar.nix
+        ./hyprpaper.nix
         ./hypridle.nix
         ./hyprlock.nix
         ./greetd.nix
@@ -30,8 +32,6 @@
                 SDL_VIDEODRIVER = "wayland";
                 XDG_SESSION_TYPE = "wayland";
             };
-
-
         };
     };
 

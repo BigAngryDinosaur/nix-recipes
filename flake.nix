@@ -8,7 +8,7 @@
                 name = "Rusha";
                 email = "hrishikesh.sawant322@gmail.com";
                 wm = "hyprland";
-                theme = "io";
+                theme = "anime-city";
                 browser = "firefox";
                 editor = "nvim";
                 terminal = "ghostty";
@@ -90,6 +90,10 @@
 
         stylix = {
             url = "github:danth/stylix";
-        } ;
+        };
+
+        swww = {
+            url = "github:LGFae/swww";
+        };
     };
 }

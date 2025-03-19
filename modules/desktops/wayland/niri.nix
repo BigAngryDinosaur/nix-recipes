@@ -16,6 +16,7 @@ in
 
         wofi.enable = true;
         waybar.enable = true;
+        hyprpaper.enable = true;
 
         programs.niri = {
             enable = true;
@@ -39,6 +40,7 @@ in
 
                     spawn-at-startup = [
                         (makeCommand "uwsm finalize")
+                        (makeCommand "swww-daemon")
                         (makeCommand "hyprlock")
                         (makeCommand "waybar")
                     ];

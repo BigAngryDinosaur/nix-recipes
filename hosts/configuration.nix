@@ -83,6 +83,7 @@
             # Utils
             coreutils
 			wget
+            fastfetch
 
             # A/V
 			alsa-utils
@@ -91,7 +92,7 @@
 			pulseaudio
             vlc
             mpv
-            feh
+            oculante
 
             # Browsers
 			firefox
