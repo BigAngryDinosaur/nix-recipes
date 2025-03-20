@@ -8,7 +8,7 @@
                 name = "Rusha";
                 email = "hrishikesh.sawant322@gmail.com";
                 wm = "hyprland";
-                theme = "anime-city";
+                theme = "io";
                 browser = "firefox";
                 editor = "nvim";
                 terminal = "ghostty";
