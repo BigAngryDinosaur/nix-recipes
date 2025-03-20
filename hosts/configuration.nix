@@ -7,6 +7,7 @@
 		../modules/styles
 		../modules/shell
 		../modules/programs
+        ../modules/apps
     ];
 
 	users.users.${userSettings.username} = {
