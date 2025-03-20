@@ -50,9 +50,12 @@ in {
                 oh-my-zsh = {
                     enable = true;
                     theme = "robbyrussell";
-                    plugins = [ "git" "eza" ];
+                    plugins = [ "git" "eza" "fzf" ];
                 };
 
+                initExtra = ''
+                    source ${./functions.zsh}
+                '';
             };
         };
     };

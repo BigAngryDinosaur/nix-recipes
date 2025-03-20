@@ -112,6 +112,11 @@
 	home-manager.users.${userSettings.username} = {
 
 		home = {
+
+            sessionVariables = {
+                EDITOR = "${userSettings.editor}";
+            };
+
 			stateVersion = "25.05";
 		};
 

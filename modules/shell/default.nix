@@ -9,6 +9,7 @@
         ./zoxide.nix
         ./zsh.nix
         ./nushell.nix
+        ./tmux.nix
     ];
 
     config = {
@@ -18,6 +19,7 @@
         starship.enable = true;
         fzf.enable = true;
         zoxide.enable = true;
+        tmux.enable = true;
     };
 }
 

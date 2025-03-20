@@ -98,6 +98,7 @@ in
                         "Mod+P".action.spawn = "${pkgs.firefox}/bin/firefox";
                         "Mod+Space".action.spawn = "wofi";
                         "Ctrl+Alt+L".action.spawn = "hyprlock";
+                        "Mod+Y".action.spawn = ["sh" "-c" "${pkgs.ghostty}/bin/ghostty -e yazi"];
 
                         "Mod+Q".action.close-window = [];
                         "Mod+R".action.switch-preset-column-width = [];
