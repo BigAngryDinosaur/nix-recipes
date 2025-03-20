@@ -4,14 +4,16 @@
     imports = [
         ./git.nix
         ./starship.nix
-        ./zsh.nix
         ./yazi.nix
         ./fzf.nix
         ./zoxide.nix
+        ./zsh.nix
+        ./nushell.nix
     ];
 
     config = {
         zsh.enable = true;
+        nushell.enable = true;
         yazi.enable = true;
         starship.enable = true;
         fzf.enable = true;
