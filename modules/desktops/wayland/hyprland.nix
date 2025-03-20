@@ -37,18 +37,9 @@ in
             ];
         };
 
-        programs.hyprland.enable = true;
-
         home-manager.users.${userSettings.username} = {
 
             imports = [ hyprland.homeManagerModules.default ];
-
-            services.hyprpaper = {
-                enable = true;
-                settings = {
-                    ipc = true;
-                };
-            };
 
             wayland.windowManager.hyprland = {
                 enable = true;
@@ -58,9 +49,9 @@ in
                 portalPackage =
                     hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
 
-                plugins = [ 
-                    inputs.hyprspace.packages.${pkgs.system}.Hyprspace
-                ];
+                #plugins = [ 
+                #    inputs.hyprspace.packages.${pkgs.system}.Hyprspace
+                #];
 
                 settings = {
 
@@ -124,7 +115,7 @@ in
 
                         # Power
                         "SUPER,S,exec,${pkgs.systemd}/bin/systemctl suspend"
-                        "SUPER,M,exec,${pkgs.hyprlock}/bin/hyprlock"
+                        "SUPER,M,exec,hyprlock"
 
                         # Wofi
                         "SUPER,Space,exec, pkill wofi || ${pkgs.wofi}/bin/wofi --show drun"
@@ -174,14 +165,14 @@ in
                         "SUPER,V,fullscreen, 1"
 
                         # Hyprspace
-                        "SUPER,P,overview:toggle"
+                        #"SUPER,P,overview:toggle"
                     ];
 
                     bindm =
                         [ "SUPER,mouse:272,movewindow" "SUPER,mouse:273,resizewindow" ];
 
                     exec-once = [
-                        "${pkgs.hyprlock}/bin/hyprlock"
+                        "hyprlock"
                         "${pkgs.waybar}/bin/waybar -c $HOME/.config/waybar/config"
                     ];
                 };

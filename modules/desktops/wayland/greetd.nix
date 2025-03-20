@@ -19,7 +19,7 @@ in
         settings = {
             default_session = session;
             initial_session = session;
-            terminal.vt = 7;
         };
+        vt = 7;
     };
 }
