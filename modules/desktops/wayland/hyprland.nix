@@ -181,7 +181,6 @@ in
                         [ "SUPER,mouse:272,movewindow" "SUPER,mouse:273,resizewindow" ];
 
                     exec-once = [
-                        "uwsm finalize"
                         "${pkgs.hyprlock}/bin/hyprlock"
                         "${pkgs.waybar}/bin/waybar -c $HOME/.config/waybar/config"
                     ];

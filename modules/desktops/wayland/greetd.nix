@@ -2,9 +2,9 @@
 let
     command = 
     if config.hyprland.enable then
-        "${lib.getExe config.programs.uwsm.package} start hyprland-uwsm.desktop"
+        "${config.programs.hyprland.package}/bin/Hyprland"
     else if config.niri.enable then
-        "${lib.getExe config.programs.uwsm.package} start ${pkgs.niri}/share/wayland-sessions/niri.desktop"
+        "${pkgs.niri}/bin/niri-session"
     else
         abort "Invalid WM";
 in

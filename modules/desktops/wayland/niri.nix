@@ -39,7 +39,6 @@ in
                 settings = {
 
                     spawn-at-startup = [
-                        (makeCommand "uwsm finalize")
                         (makeCommand "swww-daemon")
                         (makeCommand "hyprlock")
                         (makeCommand "waybar")
