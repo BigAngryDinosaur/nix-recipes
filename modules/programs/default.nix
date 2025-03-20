@@ -1,7 +1,9 @@
-
-[
-    ./kanata
-	./spotify
-	./neovim
-    ./ghostty
-]
+{ config, ... }: {
+    
+    imports = [
+        ./kanata
+        ./spotify
+        ./neovim
+        ./ghostty
+    ];
+}

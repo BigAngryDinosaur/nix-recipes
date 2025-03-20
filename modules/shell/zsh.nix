@@ -1,51 +1,54 @@
+{ config, lib, pkgs, userSettings, ... }:
+let
+    inherit (lib) mkEnableOption mkIf;
+    cfg = config.zsh;
+in {
 
-{ pkgs, userSettings, ... }:
-
-{
-    users.users.${userSettings.username} = {
-        shell = pkgs.zsh;
+    options = {
+        zsh.enable = mkEnableOption "Enable zsh";
     };
 
-    environment.systemPackages = with pkgs; [
-        eza
-        fd
-        jq
-        bat
-        ripgrep
-    ];
+    config = mkIf cfg.enable {
 
-    programs.zsh = {
-        enable = true;
-        autosuggestions.enable = true;
-        syntaxHighlighting.enable = true;
-        enableCompletion = true;
-        histSize = 100000;
-
-        shellAliases = {
-
-            # Eza
-            l = "eza -lah --icons=auto";
-            lg = "eza -lH --git";
-            lt = "eza -T";
-
-            # Editor
-            e = "${userSettings.editor}";
-
-            # General
-            c = "clear";
+        users.users.${userSettings.username} = {
+            shell = pkgs.zsh;
         };
 
-        shellInit = ''
-                # Spaceship
-                source ${pkgs.spaceship-prompt}/share/zsh/site-functions/prompt_spaceship_setup
-                autoload -U promptinit; promptinit
-        '';
+        environment.systemPackages = with pkgs; [
+            eza
+            fd
+            jq
+            bat
+            ripgrep
+        ];
 
-        ohMyZsh = {
+        programs.zsh = {
             enable = true;
-            theme = "robbyrussell";
-            plugins = [ "git" "eza" ];
-        };
+            autosuggestions.enable = true;
+            syntaxHighlighting.enable = true;
+            enableCompletion = true;
+            histSize = 100000;
 
+            shellAliases = {
+
+                # Eza
+                l = "eza -lah --icons=auto";
+                lg = "eza -lH --git";
+                lt = "eza -T";
+
+                # Editor
+                e = "${userSettings.editor}";
+
+                # General
+                c = "clear";
+            };
+
+            ohMyZsh = {
+                enable = true;
+                theme = "robbyrussell";
+                plugins = [ "git" "eza" ];
+            };
+
+        };
     };
 }

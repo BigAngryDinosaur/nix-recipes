@@ -1,4 +1,5 @@
-
-[
-    ./wayland
-]
+{ config, ... }: {
+    imports = [
+        ./wayland
+    ];
+}

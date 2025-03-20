@@ -2,12 +2,12 @@
 { config, lib, pkgs, inputs, userSettings, systemSettings, ... }:
 
 {
-	imports = (
-		import ../modules/desktops ++
-		import ../modules/styles ++
-		import ../modules/shell ++ 
-		import ../modules/programs
-	);
+	imports = [
+		../modules/desktops
+		../modules/styles
+		../modules/shell
+		../modules/programs
+    ];
 
 	users.users.${userSettings.username} = {
 		isNormalUser = true;

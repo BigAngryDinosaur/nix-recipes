@@ -1,5 +1,5 @@
-
-[
-	./styles.nix
-    ./stylix.nix
-]
+{ config, ... }: {
+    imports = [
+        ./stylix.nix
+    ];
+}
