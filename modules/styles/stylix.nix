@@ -53,10 +53,17 @@ in
         stylix.cursor.size = 24;
 
         stylix.opacity = {
-            terminal = 0.75;
+            terminal = 0.9;
             desktop = 0.5;
         };
 
         stylix.targets.niri.enable = true;
+
+        stylix.targets.nixvim = {
+            transparentBackground = {
+                main = true;
+                signColumn = true;
+            };
+        };
     };
 }

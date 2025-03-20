@@ -2,7 +2,7 @@
 { config, lib, pkgs, inputs, userSettings, host, ... }:
 
 let
-    inherit (lib) mkEnableOption mkIf;
+    inherit (lib) mkEnableOption mkIf mkDefault;
     inherit (host) monitors;
 
     cfg = config.niri;
@@ -167,6 +167,13 @@ in
                         "Mod+Ctrl+L".action.focus-monitor-right = [];
                     };
 
+                    window-rules = [
+                        {
+                            draw-border-with-background = false;
+                        }
+                    ];
+
+                    prefer-no-csd = true;
                 };
             };
 
