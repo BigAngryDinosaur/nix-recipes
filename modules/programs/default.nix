@@ -4,6 +4,6 @@
         ./kanata
         ./spotify
         ./neovim
-        ./ghostty
+        ./ghostty.nix
     ];
 }

@@ -13,8 +13,8 @@
                 editor = "nvim";
                 terminal = "ghostty";
                 font = {
-                    name = "Intel One Mono";
-                    pkg = pkgs-unstable.intel-one-mono;
+                    name = "JetBrains Mono Nerd Font";
+                    pkg = pkgs-unstable.nerd-fonts.jetbrains-mono;
                 };
             };
 

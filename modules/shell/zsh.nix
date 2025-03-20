@@ -22,33 +22,38 @@ in {
             ripgrep
         ];
 
-        programs.zsh = {
-            enable = true;
-            autosuggestions.enable = true;
-            syntaxHighlighting.enable = true;
-            enableCompletion = true;
-            histSize = 100000;
+        programs.zsh.enable = true;
 
-            shellAliases = {
-
-                # Eza
-                l = "eza -lah --icons=auto";
-                lg = "eza -lH --git";
-                lt = "eza -T";
-
-                # Editor
-                e = "${userSettings.editor}";
-
-                # General
-                c = "clear";
-            };
-
-            ohMyZsh = {
+        home-manager.users.${userSettings.username} = {
+            programs.zsh = {
                 enable = true;
-                theme = "robbyrussell";
-                plugins = [ "git" "eza" ];
-            };
+                package = pkgs.zsh;
+                autosuggestion.enable = true;
+                syntaxHighlighting.enable = true;
+                enableCompletion = true;
+                history.size = 100000;
 
+                shellAliases = {
+
+                    # Eza
+                    l = "eza -lah --icons=auto";
+                    lg = "eza -lH --git";
+                    lt = "eza -T";
+
+                    # Editor
+                    e = "${userSettings.editor}";
+
+                    # General
+                    c = "clear";
+                };
+
+                oh-my-zsh = {
+                    enable = true;
+                    theme = "robbyrussell";
+                    plugins = [ "git" "eza" ];
+                };
+
+            };
         };
     };
 }

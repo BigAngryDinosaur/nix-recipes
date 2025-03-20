@@ -63,18 +63,7 @@
 		stateVersion = "25.05";
 	};
 
-	fonts.packages = with pkgs; [
-		carlito
-		vegur
-		source-code-pro
-		jetbrains-mono
-		font-awesome
-		corefonts
-		nerd-fonts.fira-code
-	];
-
-	console = {
-		font = "Lat2-Terminus16";
+    console = {
 		keyMap = "us";
 	};
 

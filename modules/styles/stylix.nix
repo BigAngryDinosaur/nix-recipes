@@ -35,18 +35,27 @@ in
                 package = pkgs.noto-fonts-monochrome-emoji;
             };
             sizes = {
-                terminal = 18;
+                terminal = 12;
                 applications = 12;
                 popups = 12;
                 desktop = 12;
             };
         };
 
+        fonts.fontconfig.defaultFonts = {
+            monospace = [ userSettings.font.name ];
+            sansSerif = [ userSettings.font.name ];
+            serif = [ userSettings.font.name ];
+        };
+
         stylix.cursor.package = pkgs.phinger-cursors;
         stylix.cursor.name = "phinger-cursors-dark";
         stylix.cursor.size = 24;
 
-        stylix.opacity.terminal = 0.9;
+        stylix.opacity = {
+            terminal = 0.75;
+            desktop = 0.5;
+        };
 
         stylix.targets.niri.enable = true;
     };
