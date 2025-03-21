@@ -17,6 +17,7 @@ in
         wofi.enable = true;
         waybar.enable = true;
         hyprpaper.enable = true;
+        #swww.enable = true;
 
         programs.niri = {
             enable = true;
@@ -39,9 +40,9 @@ in
                 settings = {
 
                     spawn-at-startup = [
-                        (makeCommand "swww-daemon")
                         (makeCommand "hyprlock")
                         (makeCommand "waybar")
+                        #(makeCommand "swww-daemon")
                     ];
 
                     input = {
