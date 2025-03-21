@@ -16,8 +16,7 @@ in
 
         wofi.enable = true;
         waybar.enable = true;
-        hyprpaper.enable = true;
-        #swww.enable = true;
+        swww.enable = true;
 
         programs.niri = {
             enable = true;
@@ -42,7 +41,8 @@ in
                     spawn-at-startup = [
                         (makeCommand "hyprlock")
                         (makeCommand "waybar")
-                        #(makeCommand "swww-daemon")
+                        (makeCommand "swww-daemon")
+                        (makeCommand "swww-daemon img $HOME/Videos/osaka-rain.gif")
                     ];
 
                     input = {
