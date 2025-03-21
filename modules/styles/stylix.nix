@@ -48,8 +48,8 @@ in
             serif = [ userSettings.font.name ];
         };
 
-        stylix.cursor.package = pkgs.phinger-cursors;
-        stylix.cursor.name = "phinger-cursors-dark";
+        stylix.cursor.package = pkgs.bibata-cursors;
+        stylix.cursor.name = "Bibata-Modern-Amber";
         stylix.cursor.size = 24;
 
         stylix.opacity = {
