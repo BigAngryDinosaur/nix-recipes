@@ -53,7 +53,7 @@ in
                     };
 
                     outputs = (
-                        if host.name == "betegeuse" then
+                        if host.name == "betelgeuse" then
                         {
                             "${toString monitors.left}" = {
                                 scale = 1.0;
@@ -94,6 +94,19 @@ in
                                     y = 0;
                                 };
                             }; 
+                            "${toString monitors.tv}" = {
+                                scale = 1.50;
+                                transform.rotation = 0; 
+                                mode = {
+                                    width = 3840;
+                                    height = 2160;
+                                    refresh = 60.00;
+                                };
+                                position = {
+                                    x = 0;
+                                    y = 2160;
+                                };
+                            };
                         }
                         else if host.name == "vm" then
                         {
@@ -110,54 +123,46 @@ in
                             abort "Invalid host"
                     );
 
-                    binds = {
-                        "Mod+Return".action.spawn = "${pkgs.ghostty}/bin/ghostty";
-                        "Mod+P".action.spawn = "${pkgs.firefox}/bin/firefox";
-                        "Mod+Space".action.spawn = "wofi";
+                    binds = let
+                        hyper = "Ctrl+Alt+Shift+Super";
+                        meh = "Ctrl+Alt+Shift";
+                    in {
+                        "${meh}+Return".action.spawn = "${pkgs.ghostty}/bin/ghostty";
+                        "${meh}+Space".action.spawn = "wofi";
+                        "${meh}+F".action.spawn = "${pkgs.firefox}/bin/firefox";
+                        "${meh}+D".action.spawn = ["sh" "-c" "${pkgs.ghostty}/bin/ghostty -e yazi"];
+
                         "Ctrl+Alt+L".action.spawn = "hyprlock";
-                        "Mod+Y".action.spawn = ["sh" "-c" "${pkgs.ghostty}/bin/ghostty -e yazi"];
 
                         "Mod+Q".action.close-window = [];
-                        "Mod+R".action.switch-preset-column-width = [];
-                        "Mod+Shift+R".action.switch-preset-window-height = [];
-                        "Mod+Ctrl+R".action.reset-window-height = [];
+                        "Mod+O".action.switch-preset-column-width = [];
+                        "Mod+Alt+O".action.switch-preset-window-height = [];
+                        "Mod+Alt+P".action.reset-window-height = [];
                         "Mod+F".action.maximize-column = [];
-                        "Mod+Shift+F".action.fullscreen-window = [];
+                        "Mod+Alt+F".action.fullscreen-window = [];
                         "Mod+Shift+Space".action.toggle-window-floating = [];
 
-                        "Mod+Shift+BracketLeft".action.consume-window-into-column = [];
-                        "Mod+Shift+BracketRight".action.expel-window-from-column = [];
-                        "Mod+BracketLeft".action.consume-or-expel-window-left = [];
-                        "Mod+BracketRight".action.consume-or-expel-window-right = [];
-                        "Mod+C".action.center-window = [];
-                        "Mod+Tab".action.switch-focus-between-floating-and-tiling = [];
+                        "Mod+Alt+U".action.consume-window-into-column = [];
+                        "Mod+Alt+I".action.expel-window-from-column = [];
+                        "Mod+U".action.consume-or-expel-window-left = [];
+                        "Mod+I".action.consume-or-expel-window-right = [];
+                        "Mod+D".action.center-window = [];
+                        "Mod+G".action.switch-focus-between-floating-and-tiling = [];
 
-                        "Mod+Minus".action.set-column-width = "-10%";
-                        "Mod+Equal".action.set-column-width = "+10%";
-                        "Mod+Shift+Minus".action.set-window-height = "-10%";
-                        "Mod+Shift+Equal".action.set-window-height = "+10%";
+                        "Mod+Shift+H".action.set-column-width = "-10%";
+                        "Mod+Shift+L".action.set-column-width = "+10%";
+                        "Mod+Shift+J".action.set-window-height = "-10%";
+                        "Mod+Shift+K".action.set-window-height = "+10%";
 
                         "Mod+H".action.focus-column-left = [];
                         "Mod+L".action.focus-column-right = [];
                         "Mod+J".action.focus-window-or-workspace-down = [];
                         "Mod+K".action.focus-window-or-workspace-up = [];
-                        "Mod+Left".action.focus-column-left = [];
-                        "Mod+Right".action.focus-column-right = [];
-                        "Mod+Down".action.focus-workspace-down = [];
-                        "Mod+Up".action.focus-workspace-up = [];
-                        "Mod+Home".action.focus-column-first = [];
-                        "Mod+End".action.focus-column-last = [];
-                        "Mod+Shift+Home".action.move-column-to-first = [];
-                        "Mod+Shift+End".action.move-column-to-last = [];
 
-                        "Mod+Shift+H".action.move-column-left = [];
-                        "Mod+Shift+L".action.move-column-right = [];
-                        "Mod+Shift+K".action.move-column-to-workspace-up = [];
-                        "Mod+Shift+J".action.move-column-to-workspace-down = [];
-                        "Mod+Shift+Left".action.move-column-left = [];
-                        "Mod+Shift+Right".action.move-column-right = [];
-                        "Mod+Shift+Up".action.move-column-to-workspace-up = [];
-                        "Mod+Shift+Down".action.move-column-to-workspace-down = [];
+                        "Mod+Alt+H".action.move-column-left = [];
+                        "Mod+Alt+L".action.move-column-right = [];
+                        "Mod+Alt+K".action.move-column-to-workspace-up = [];
+                        "Mod+Alt+J".action.move-column-to-workspace-down = [];
 
                         "Mod+1".action.focus-workspace = 1;
                         "Mod+2".action.focus-workspace = 2;
@@ -178,8 +183,8 @@ in
                         "Mod+Ctrl+8".action.move-column-to-workspace = 8;
                         "Mod+Ctrl+9".action.move-column-to-workspace = 9;
 
-                        "Mod+Shift+Ctrl+H".action.move-column-to-monitor-left = [];
-                        "Mod+Shift+Ctrl+L".action.move-column-to-monitor-right = [];
+                        "Mod+Alt+Ctrl+H".action.move-column-to-monitor-left = [];
+                        "Mod+Alt+Ctrl+L".action.move-column-to-monitor-right = [];
 
                         "Mod+Ctrl+H".action.focus-monitor-left = [];
                         "Mod+Ctrl+L".action.focus-monitor-right = [];
