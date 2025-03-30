@@ -52,47 +52,63 @@ in
                         workspace-auto-back-and-forth = true;
                     };
 
-                    outputs = {
-                        "${toString monitors.left}" = {
-                            scale = 1.0;
-                            transform.rotation = 90; 
-                            mode = {
-                                width = 1920;
-                                height = 1200;
-                                refresh = 100.0;
+                    outputs = (
+                        if host.name == "betegeuse" then
+                        {
+                            "${toString monitors.left}" = {
+                                scale = 1.0;
+                                transform.rotation = 90; 
+                                mode = {
+                                    width = 1920;
+                                    height = 1200;
+                                    refresh = 100.0;
+                                };
+                                position = {
+                                    x = 0;
+                                    y = 0;
+                                };
                             };
-                            position = {
-                                x = 0;
-                                y = 0;
+                            "${toString monitors.middle}" = {
+                                scale = 1.25;
+                                transform.rotation = 0; 
+                                mode = {
+                                    width = 3840;
+                                    height = 2160;
+                                    refresh = 119.88;
+                                };
+                                position = {
+                                    x = 1200;
+                                    y = 0;
+                                };
                             };
-                        };
-                        "${toString monitors.middle}" = {
-                            scale = 1.25;
-                            transform.rotation = 0; 
-                            mode = {
-                                width = 3840;
-                                height = 2160;
-                                refresh = 119.88;
+                            "${toString monitors.right}" = {
+                                scale = 1.0;
+                                transform.rotation = 270; 
+                                mode = {
+                                    width = 1920;
+                                    height = 1200;
+                                    refresh = 100.0;
+                                };
+                                position = {
+                                    x = 4272;
+                                    y = 0;
+                                };
+                            }; 
+                        }
+                        else if host.name == "vm" then
+                        {
+                            "${toString monitors.main}" = {
+                                scale = 1.50;
+                                mode = {
+                                    width = 2560;
+                                    height = 1600;
+                                    refresh = 59.987;
+                                };
                             };
-                            position = {
-                                x = 1200;
-                                y = 0;
-                            };
-                        };
-                        "${toString monitors.right}" = {
-                            scale = 1.0;
-                            transform.rotation = 270; 
-                            mode = {
-                                width = 1920;
-                                height = 1200;
-                                refresh = 100.0;
-                            };
-                            position = {
-                                x = 4272;
-                                y = 0;
-                            };
-                        };
-                    };
+                        }
+                        else 
+                            abort "Invalid host"
+                    );
 
                     binds = {
                         "Mod+Return".action.spawn = "${pkgs.ghostty}/bin/ghostty";
