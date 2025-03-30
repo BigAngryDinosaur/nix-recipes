@@ -183,6 +183,8 @@ in
 
                         "Mod+Ctrl+H".action.focus-monitor-left = [];
                         "Mod+Ctrl+L".action.focus-monitor-right = [];
+
+                        "Mod+W".action.toggle-column-tabbed-display = [];
                     };
 
                     window-rules = [

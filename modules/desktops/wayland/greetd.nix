@@ -21,5 +21,8 @@ in
             initial_session = session;
         };
         vt = 7;
+
     };
+
+    security.pam.services.greetd.enableGnomeKeyring = true;
 }
