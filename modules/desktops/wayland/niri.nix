@@ -126,15 +126,21 @@ in
                     binds = let
                         hyper = "Ctrl+Alt+Shift+Super";
                         meh = "Ctrl+Alt+Shift";
+                        cam = "Ctrl+Alt+Super";
+                        cms = "Ctrl+Super+Shift";
+                        ams = "Alt+Super+Shift";
                     in {
-                        "${meh}+Return".action.spawn = "${pkgs.ghostty}/bin/ghostty";
-                        "${meh}+Space".action.spawn = "wofi";
-                        "${meh}+F".action.spawn = "${pkgs.firefox}/bin/firefox";
-                        "${meh}+D".action.spawn = ["sh" "-c" "${pkgs.ghostty}/bin/ghostty -e yazi"];
+                        "${cam}+J".action.spawn = "${pkgs.ghostty}/bin/ghostty";
+                        "${cms}+J".action.spawn = ["sh" "-c" "${pkgs.ghostty}/bin/ghostty -e yazi"];
+
+                        "${cam}+F".action.spawn = "wofi";
+
+                        "${cms}+I".action.spawn = "${pkgs.firefox}/bin/firefox";
+                        "${cam}+I".action.spawn = "${pkgs.google-chrome}/bin/google-chrome-stable";
 
                         "Ctrl+Alt+L".action.spawn = "hyprlock";
 
-                        "Mod+Q".action.close-window = [];
+                        "Ctrl+Q".action.close-window = [];
                         "Mod+O".action.switch-preset-column-width = [];
                         "Mod+Alt+O".action.switch-preset-window-height = [];
                         "Mod+Alt+P".action.reset-window-height = [];
@@ -154,40 +160,34 @@ in
                         "Mod+Shift+J".action.set-window-height = "-10%";
                         "Mod+Shift+K".action.set-window-height = "+10%";
 
-                        "Mod+H".action.focus-column-left = [];
-                        "Mod+L".action.focus-column-right = [];
-                        "Mod+J".action.focus-window-or-workspace-down = [];
-                        "Mod+K".action.focus-window-or-workspace-up = [];
+                        "${hyper}+H".action.focus-column-left = [];
+                        "${hyper}+L".action.focus-column-right = [];
+                        "${hyper}+J".action.focus-window-or-workspace-down = [];
+                        "${hyper}+K".action.focus-window-or-workspace-up = [];
 
-                        "Mod+Alt+H".action.move-column-left = [];
-                        "Mod+Alt+L".action.move-column-right = [];
-                        "Mod+Alt+K".action.move-column-to-workspace-up = [];
-                        "Mod+Alt+J".action.move-column-to-workspace-down = [];
+                        "${meh}+H".action.move-column-left = [];
+                        "${meh}+L".action.move-column-right = [];
+                        "${meh}+K".action.move-column-to-workspace-up = [];
+                        "${meh}+J".action.move-column-to-workspace-down = [];
 
-                        "Mod+1".action.focus-workspace = 1;
-                        "Mod+2".action.focus-workspace = 2;
-                        "Mod+3".action.focus-workspace = 3;
-                        "Mod+4".action.focus-workspace = 4;
-                        "Mod+5".action.focus-workspace = 5;
-                        "Mod+6".action.focus-workspace = 6;
-                        "Mod+7".action.focus-workspace = 7;
-                        "Mod+8".action.focus-workspace = 8;
-                        "Mod+9".action.focus-workspace = 9;
-                        "Mod+Ctrl+1".action.move-column-to-workspace = 1;
-                        "Mod+Ctrl+2".action.move-column-to-workspace = 2;
-                        "Mod+Ctrl+3".action.move-column-to-workspace = 3;
-                        "Mod+Ctrl+4".action.move-column-to-workspace = 4;
-                        "Mod+Ctrl+5".action.move-column-to-workspace = 5;
-                        "Mod+Ctrl+6".action.move-column-to-workspace = 6;
-                        "Mod+Ctrl+7".action.move-column-to-workspace = 7;
-                        "Mod+Ctrl+8".action.move-column-to-workspace = 8;
-                        "Mod+Ctrl+9".action.move-column-to-workspace = 9;
+                        "${hyper}+1".action.focus-workspace = 1;
+                        "${hyper}+2".action.focus-workspace = 2;
+                        "${hyper}+3".action.focus-workspace = 3;
+                        "${hyper}+4".action.focus-workspace = 4;
+                        "${hyper}+5".action.focus-workspace = 5;
+                        "${hyper}+6".action.focus-workspace = 6;
+                        "${meh}+1".action.move-column-to-workspace = 1;
+                        "${meh}+2".action.move-column-to-workspace = 2;
+                        "${meh}+3".action.move-column-to-workspace = 3;
+                        "${meh}+4".action.move-column-to-workspace = 4;
+                        "${meh}+5".action.move-column-to-workspace = 5;
+                        "${meh}+6".action.move-column-to-workspace = 6;
 
-                        "Mod+Alt+Ctrl+H".action.move-column-to-monitor-left = [];
-                        "Mod+Alt+Ctrl+L".action.move-column-to-monitor-right = [];
+                        "${meh}+7".action.move-column-to-monitor-left = [];
+                        "${meh}+9".action.move-column-to-monitor-right = [];
 
-                        "Mod+Ctrl+H".action.focus-monitor-left = [];
-                        "Mod+Ctrl+L".action.focus-monitor-right = [];
+                        "${hyper}+7".action.focus-monitor-left = [];
+                        "${hyper}+9".action.focus-monitor-right = [];
 
                         "Mod+W".action.toggle-column-tabbed-display = [];
                     };
