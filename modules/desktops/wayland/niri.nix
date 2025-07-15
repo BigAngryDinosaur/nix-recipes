@@ -119,6 +119,17 @@ in
                                 };
                             };
                         }
+                        else if host.name == "vm-arm" then
+                        {
+                            "${toString monitors.main}" = {
+                                scale = 1.50;
+                                mode = {
+                                    width = 4096;
+                                    height = 2160;
+                                    refresh = 60.000;
+                                };
+                            };
+                        }
                         else 
                             abort "Invalid host"
                     );
@@ -136,39 +147,26 @@ in
                         "${cam}+F".action.spawn = "wofi";
 
                         "${cms}+I".action.spawn = "${pkgs.firefox}/bin/firefox";
-                        "${cam}+I".action.spawn = "${pkgs.google-chrome}/bin/google-chrome-stable";
 
                         "Ctrl+Alt+L".action.spawn = "hyprlock";
 
                         "Ctrl+Q".action.close-window = [];
-                        "Mod+O".action.switch-preset-column-width = [];
-                        "Mod+Alt+O".action.switch-preset-window-height = [];
-                        "Mod+Alt+P".action.reset-window-height = [];
-                        "Mod+F".action.maximize-column = [];
-                        "Mod+Alt+F".action.fullscreen-window = [];
-                        "Mod+Shift+Space".action.toggle-window-floating = [];
 
-                        "Mod+Alt+U".action.consume-window-into-column = [];
-                        "Mod+Alt+I".action.expel-window-from-column = [];
-                        "Mod+U".action.consume-or-expel-window-left = [];
-                        "Mod+I".action.consume-or-expel-window-right = [];
-                        "Mod+D".action.center-window = [];
-                        "Mod+G".action.switch-focus-between-floating-and-tiling = [];
-
-                        "Mod+Shift+H".action.set-column-width = "-10%";
-                        "Mod+Shift+L".action.set-column-width = "+10%";
-                        "Mod+Shift+J".action.set-window-height = "-10%";
-                        "Mod+Shift+K".action.set-window-height = "+10%";
-
+                        # Focus window
                         "${hyper}+H".action.focus-column-left = [];
                         "${hyper}+L".action.focus-column-right = [];
                         "${hyper}+J".action.focus-window-or-workspace-down = [];
                         "${hyper}+K".action.focus-window-or-workspace-up = [];
 
-                        "${meh}+H".action.move-column-left = [];
-                        "${meh}+L".action.move-column-right = [];
-                        "${meh}+K".action.move-column-to-workspace-up = [];
-                        "${meh}+J".action.move-column-to-workspace-down = [];
+                        # Move window
+                        "${meh}+A".action.move-column-left = [];
+                        "${meh}+F".action.move-column-right = [];
+                        "${meh}+S".action.move-column-to-workspace-up = [];
+                        "${meh}+D".action.move-column-to-workspace-down = [];
+
+                        # Focus workspace
+                        "${meh}+J".action.focus-workspace-down = [];
+                        "${meh}+K".action.focus-workspace-up = [];
 
                         "${hyper}+1".action.focus-workspace = 1;
                         "${hyper}+2".action.focus-workspace = 2;
@@ -176,6 +174,11 @@ in
                         "${hyper}+4".action.focus-workspace = 4;
                         "${hyper}+5".action.focus-workspace = 5;
                         "${hyper}+6".action.focus-workspace = 6;
+
+                        # Move window to workspace
+                        "${meh}+M".action.move-column-to-workspace-down = [];
+                        "${meh}+comma".action.move-column-to-workspace-up = [];
+
                         "${meh}+1".action.move-column-to-workspace = 1;
                         "${meh}+2".action.move-column-to-workspace = 2;
                         "${meh}+3".action.move-column-to-workspace = 3;
@@ -183,13 +186,29 @@ in
                         "${meh}+5".action.move-column-to-workspace = 5;
                         "${meh}+6".action.move-column-to-workspace = 6;
 
-                        "${meh}+7".action.move-column-to-monitor-left = [];
-                        "${meh}+9".action.move-column-to-monitor-right = [];
+                        # Column
+                        "${hyper}+U".action.consume-or-expel-window-left = [];
+                        "${hyper}+I".action.consume-or-expel-window-right = [];
+                        "${meh}+U".action.consume-window-into-column = [];
+                        "${meh}+I".action.expel-window-from-column = [];
 
-                        "${hyper}+7".action.focus-monitor-left = [];
-                        "${hyper}+9".action.focus-monitor-right = [];
+                        # Resize
+                        "${hyper}+D".action.switch-preset-column-width = [];
+                        "${hyper}+S".action.switch-preset-window-height = [];
+                        "${hyper}+F".action.maximize-column = [];
+                        "${hyper}+A".action.reset-window-height = [];
+                        "${hyper}+G".action.fullscreen-window = [];
+                        "${hyper}+V".action.expand-column-to-available-width = [];
 
-                        "Mod+W".action.toggle-column-tabbed-display = [];
+                        "${meh}+Q".action.set-column-width = "-10%";
+                        "${meh}+R".action.set-column-width = "+10%";
+                        "${meh}+W".action.set-window-height = "-10%";
+                        "${meh}+E".action.set-window-height = "+10%";
+
+                        "${meh}+G".action.toggle-window-floating = [];
+                        "${meh}+B".action.switch-focus-between-floating-and-tiling = [];
+                        "${meh}+T".action.toggle-column-tabbed-display = [];
+
                     };
 
                     window-rules = [

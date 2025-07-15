@@ -7,45 +7,30 @@
                 username = "rusha";
                 name = "Rusha";
                 email = "hrishikesh.sawant322@gmail.com";
-                wm = "hyprland";
+                wm = "niri";
                 theme = "io";
                 browser = "firefox";
                 editor = "nvim";
                 terminal = "ghostty";
-                font = {
-                    name = "JetBrains Mono Nerd Font";
-                    pkg = pkgs-unstable.nerd-fonts.jetbrains-mono;
-                };
             };
 
             systemSettings = {
-                system = "x86_64-linux";
                 timeZone = "Asia/Tokyo";
                 locale = "en_US.UTF-8";
             };
-
-            pkgs-unstable = import inputs.nixpkgs {
-                system = systemSettings.system;
-                config.allowUnfree = true;
-            };
-
-            pkgs-stable = import inputs.nixpkgs-stable {
-                system = systemSettings.system;
-                config.allowUnfree = true;
-            };
-
+	
         in
             {
             nixosConfigurations = (
                 import ./hosts {
-                    inherit inputs pkgs-stable userSettings systemSettings; 
+                    inherit inputs userSettings systemSettings; 
                 }
             );
         };
 
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-        nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.11";
+        nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
         nixos-hardware.url = "github:nixos/nixos-hardware/master";
 
         home-manager = {

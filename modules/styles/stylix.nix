@@ -5,6 +5,10 @@ let
     themePolarity = lib.removeSuffix "\n" (builtins.readFile (./. + "../../../themes" + ("/" + theme) + "/polarity.txt"));
     backgroundUrl = builtins.readFile (./. + "../../../themes" + ("/" + theme) + "/backgroundurl.txt");
     backgroundSha256 = builtins.readFile (./. + "../../../themes" + ("/" + theme) + "/backgroundsha256.txt");
+    font = {
+	name = "JetBrains Mono Nerd Font";
+        pkg = pkgs.nerd-fonts.jetbrains-mono;
+    };
 in
     {
     home-manager.users.${userSettings.username} = {
@@ -19,16 +23,16 @@ in
 
         stylix.fonts = {
             monospace = {
-                name = userSettings.font.name;
-                package = userSettings.font.pkg;
+                name = font.name;
+                package = font.pkg;
             };
             serif = {
-                name = userSettings.font.name;
-                package = userSettings.font.pkg;
+                name = font.name;
+                package = font.pkg;
             };
             sansSerif = {
-                name = userSettings.font.name;
-                package = userSettings.font.pkg;
+                name = font.name;
+                package = font.pkg;
             };
             emoji = {
                 name = "Noto Emoji";
@@ -43,9 +47,9 @@ in
         };
 
         fonts.fontconfig.defaultFonts = {
-            monospace = [ userSettings.font.name ];
-            sansSerif = [ userSettings.font.name ];
-            serif = [ userSettings.font.name ];
+            monospace = [ font.name ];
+            sansSerif = [ font.name ];
+            serif = [ font.name ];
         };
 
         stylix.cursor.package = pkgs.bibata-cursors;

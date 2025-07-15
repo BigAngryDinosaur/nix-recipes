@@ -1,17 +1,20 @@
-{ inputs, pkgs-stable, userSettings, systemSettings, ... }:
+{ inputs, userSettings, systemSettings, ... }:
 
 let
-    inherit (systemSettings) system;
-    inherit (inputs) nixpkgs home-manager stylix niri;
+    inherit (inputs) nixpkgs nixpkgs-stable home-manager stylix niri;
 
 	lib = nixpkgs.lib;
 in
 
 {
 	betelgeuse = lib.nixosSystem rec {
-        inherit system;
+		system = "x86_64-linux";
 		specialArgs = {
-			inherit inputs pkgs-stable userSettings systemSettings;
+			inherit inputs userSettings systemSettings;
+			pkgs-stable = import nixpkgs-stable {
+			    system = "x86_64-linux";
+			    config.allowUnfree = true;
+			};
 			host = {
 				name = "betelgeuse";
 				monitors = {
@@ -29,17 +32,21 @@ in
 			home-manager.nixosModules.home-manager {
 				home-manager.useGlobalPkgs = true;
 				home-manager.useUserPackages = true;
-            }
+            		}
 
-            stylix.nixosModules.stylix
-            niri.nixosModules.niri
+            		stylix.nixosModules.stylix
+            		niri.nixosModules.niri
 		];
 	};
 
 	vm = lib.nixosSystem rec {
-        inherit system;
+		system = "x86_64-linux";
 		specialArgs = {
-			inherit inputs pkgs-stable userSettings systemSettings;
+			inherit inputs userSettings systemSettings;
+			pkgs-stable = import nixpkgs-stable {
+			    system = "x86_64-linux";
+			    config.allowUnfree = true;
+			};
 			host = {
 				name = "vm";
 				monitors = {
@@ -54,10 +61,39 @@ in
 			home-manager.nixosModules.home-manager {
 				home-manager.useGlobalPkgs = true;
 				home-manager.useUserPackages = true;
-            }
+  	                }
 
-            stylix.nixosModules.stylix
-            niri.nixosModules.niri
+           	 	stylix.nixosModules.stylix
+            		niri.nixosModules.niri
+		];
+	};
+
+	vm-arm = lib.nixosSystem rec {
+		system = "aarch64-linux";
+		specialArgs = {
+			inherit inputs userSettings systemSettings;
+			pkgs-stable = import nixpkgs-stable {
+			    system = "aarch64-linux";
+			    config.allowUnfree = true;
+			};
+			host = {
+				name = "vm-arm";
+				monitors = {
+					main = "Virtual-1";
+				};
+			};
+		};
+		modules = [
+			./vm-arm
+			./configuration.nix
+
+			home-manager.nixosModules.home-manager {
+				home-manager.useGlobalPkgs = true;
+				home-manager.useUserPackages = true;
+            		}
+
+            		stylix.nixosModules.stylix
+            		niri.nixosModules.niri
 		];
 	};
 }

@@ -34,7 +34,7 @@ in {
                         on-timeout = "${lockScript.outPath} lock";
                     }
                     {
-                        timeout = 1200;
+                        timeout = 5000;
                         on-timeout = "${lockScript.outPath} suspend";
                     }
                 ];

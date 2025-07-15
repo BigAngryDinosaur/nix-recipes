@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
     
     imports = [
         ./kanata
@@ -10,8 +10,8 @@
     ];
 
     config = {
-
         obs.enable = true;
+	spotify.enable = true;
         ffmpeg.enable = true;
     };
 }

@@ -7,7 +7,7 @@
 		../modules/styles
 		../modules/shell
 		../modules/programs
-        ../modules/apps
+	        ../modules/apps
     ];
 
 	users.users.${userSettings.username} = {
@@ -74,6 +74,7 @@
             coreutils
 			wget
             fastfetch
+            wev
 
             # A/V
 			alsa-utils
@@ -86,7 +87,6 @@
 
             # Browsers
 			firefox
-			google-chrome
 
             # File Management
 			pcmanfm
