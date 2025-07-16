@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }: {
     
     imports = [
-        ./kanata
         ./spotify
         ./neovim
         ./ghostty.nix

@@ -54,7 +54,7 @@
         };
 
         niri = {
-            url = "github:sodiboo/niri-flake/4d0ba35";
+            url = "github:sodiboo/niri-flake/a031dc0c82bfc07c1427616fcdaf9ce09a13f5ce";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
@@ -75,6 +75,7 @@
 
         stylix = {
             url = "github:danth/stylix";
+            inputs.nixpkgs.follows = "nixpkgs";
         };
 
         swww = {

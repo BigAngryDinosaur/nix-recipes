@@ -42,13 +42,13 @@ in
                         (makeCommand "hyprlock")
                         (makeCommand "waybar")
                         (makeCommand "swww-daemon")
-                        (makeCommand "swww-daemon img $HOME/Videos/osaka-rain.gif")
+                        (makeCommand "swww-daemon img $HOME/Pictures/green_leaves.png")
                     ];
 
                     input = {
                         keyboard.xkb.layout = "us";
                         focus-follows-mouse.enable = true;
-                        warp-mouse-to-focus = true;
+                        warp-mouse-to-focus.enable = true;
                         workspace-auto-back-and-forth = true;
                     };
 

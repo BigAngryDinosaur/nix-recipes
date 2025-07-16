@@ -89,11 +89,12 @@
 			firefox
 
             # File Management
-			pcmanfm
             p7zip
             zip
             unzip
             unrar
+
+            claude-code
 		];
 
 	};

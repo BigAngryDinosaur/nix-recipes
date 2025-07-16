@@ -10,18 +10,16 @@ let
         pkg = pkgs.nerd-fonts.jetbrains-mono;
     };
 in
-    {
-    home-manager.users.${userSettings.username} = {
-
-        stylix.enable = true;
-        stylix.polarity = themePolarity;
-        stylix.image = pkgs.fetchurl {
+{
+    stylix = {
+        enable = true;
+        polarity = themePolarity;
+        image = pkgs.fetchurl {
             url = backgroundUrl;
             sha256 = backgroundSha256;
         };
-        stylix.base16Scheme = ./. + themePath;
-
-        stylix.fonts = {
+        base16Scheme = ./. + themePath;
+        fonts = {
             monospace = {
                 name = font.name;
                 package = font.pkg;
@@ -45,22 +43,29 @@ in
                 desktop = 12;
             };
         };
+        cursor = {
+            package = pkgs.bibata-cursors;
+            name = "Bibata-Modern-Amber";
+            size = 24;
+        };
+        opacity = {
+            terminal = 0.9;
+            desktop = 0.5;
+        };
+        
+        homeManagerIntegration = {
+            autoImport = true;
+            followSystem = true;
+        };
+    };
 
+    home-manager.users.${userSettings.username} = {
         fonts.fontconfig.defaultFonts = {
             monospace = [ font.name ];
             sansSerif = [ font.name ];
             serif = [ font.name ];
         };
-
-        stylix.cursor.package = pkgs.bibata-cursors;
-        stylix.cursor.name = "Bibata-Modern-Amber";
-        stylix.cursor.size = 24;
-
-        stylix.opacity = {
-            terminal = 0.9;
-            desktop = 0.5;
-        };
-
+        
         stylix.targets.niri.enable = true;
 
         stylix.targets.nixvim = {
@@ -71,3 +76,4 @@ in
         };
     };
 }
+
