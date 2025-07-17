@@ -94,6 +94,9 @@
             unzip
             unrar
 
+            # Development
+            zig
+
             claude-code
 		];
 

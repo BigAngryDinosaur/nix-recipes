@@ -43,7 +43,6 @@ in
                         (makeCommand "waybar")
                         (makeCommand "swww-daemon")
                         (makeCommand "swww-daemon img $HOME/Pictures/green_leaves.jpg")
-                        (makeCommand "keyd-application-mapper -d")
                     ];
 
                     input = {
