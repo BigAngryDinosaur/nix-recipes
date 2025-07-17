@@ -10,6 +10,9 @@
                 window-padding-x = 24;
                 window-padding-y = 24;
                 background-blur = true;
+                keybind = [
+                    "shift+enter=text:\\n"
+                ];
             };
         };
     };

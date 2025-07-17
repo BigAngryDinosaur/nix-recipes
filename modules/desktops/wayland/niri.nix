@@ -42,7 +42,8 @@ in
                         (makeCommand "hyprlock")
                         (makeCommand "waybar")
                         (makeCommand "swww-daemon")
-                        (makeCommand "swww-daemon img $HOME/Pictures/green_leaves.png")
+                        (makeCommand "swww-daemon img $HOME/Pictures/green_leaves.jpg")
+                        (makeCommand "keyd-application-mapper -d")
                     ];
 
                     input = {
@@ -122,7 +123,7 @@ in
                         else if host.name == "vm-arm" then
                         {
                             "${toString monitors.main}" = {
-                                scale = 1.50;
+                                scale = 1.25;
                                 mode = {
                                     width = 4096;
                                     height = 2160;

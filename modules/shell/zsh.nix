@@ -53,7 +53,7 @@ in {
                     plugins = [ "git" "eza" "fzf" ];
                 };
 
-                initExtra = ''
+                initContent = ''
                     source ${./functions.zsh}
                 '';
             };
