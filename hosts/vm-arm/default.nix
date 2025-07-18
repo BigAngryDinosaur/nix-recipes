@@ -28,4 +28,5 @@
     niri.enable = true;
     obs.enable = lib.mkForce false;
     spotify.enable = lib.mkForce false;
+    warp.enable = lib.mkForce true;
 }

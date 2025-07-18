@@ -9,6 +9,7 @@
 		../modules/shell
 		../modules/programs
 	    ../modules/apps
+	    ../modules/network
     ];
 
 	users.users.${userSettings.username} = {
