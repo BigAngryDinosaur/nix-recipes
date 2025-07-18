@@ -1,0 +1,6 @@
+{ config, ... }:
+{
+    imports = [
+        ./sops.nix
+    ];
+}

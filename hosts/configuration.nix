@@ -3,11 +3,12 @@
 
 {
 	imports = [
+        ../modules/security
 		../modules/desktops
 		../modules/styles
 		../modules/shell
 		../modules/programs
-	        ../modules/apps
+	    ../modules/apps
     ];
 
 	users.users.${userSettings.username} = {
@@ -99,7 +100,6 @@
 
             # AI
             claude-code
-            gemini-cli
 		];
 
 	};
