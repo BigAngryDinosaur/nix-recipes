@@ -97,7 +97,9 @@
             # Development
             zig
 
+            # AI
             claude-code
+            gemini-cli
 		];
 
 	};
