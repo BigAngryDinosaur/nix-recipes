@@ -161,8 +161,8 @@ in
                         # Move window
                         "${meh}+A".action.move-column-left = [];
                         "${meh}+F".action.move-column-right = [];
-                        "${meh}+S".action.move-column-to-workspace-up = [];
-                        "${meh}+D".action.move-column-to-workspace-down = [];
+                        "${meh}+S".action.move-window-up = [];
+                        "${meh}+D".action.move-window-down = [];
 
                         # Focus workspace
                         "${meh}+J".action.focus-workspace-down = [];
