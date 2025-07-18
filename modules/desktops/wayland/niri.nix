@@ -111,11 +111,11 @@ in
                         else if host.name == "vm" then
                         {
                             "${toString monitors.main}" = {
-                                scale = 1.50;
+                                scale = 1.25;
                                 mode = {
-                                    width = 2560;
-                                    height = 1600;
-                                    refresh = 59.987;
+                                    width = 3840;
+                                    height = 2160;
+                                    refresh = 60.000;
                                 };
                             };
                         }
