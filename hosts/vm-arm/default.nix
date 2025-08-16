@@ -5,6 +5,7 @@
 	imports = [
 		./hardware-configuration.nix
         ./keyd.nix
+        ../../modules/audio
 	];
 
 	boot = {
@@ -24,6 +25,9 @@
 	hardware = {
 		graphics.enable = true;
 	};
+
+    # Enable VM-optimized audio to fix stuttering
+    audio.vm.enable = true;
 
     niri.enable = true;
     obs.enable = lib.mkForce false;

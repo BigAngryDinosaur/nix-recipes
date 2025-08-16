@@ -3,6 +3,7 @@
 	imports = [
 		./hardware-configuration.nix
         ./keyd.nix
+        ../../modules/audio
 	];
 
 	boot = {
@@ -34,6 +35,9 @@
 	};
 
 	services.xserver.videoDrivers = ["nvidia"];
+
+    # Enable VM-optimized audio to fix stuttering
+    audio.vm.enable = true;
 
     niri.enable = true;
     spotify.enable = lib.mkForce false;

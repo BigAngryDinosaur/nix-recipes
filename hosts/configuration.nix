@@ -10,6 +10,7 @@
 		../modules/programs
 	    ../modules/apps
 	    ../modules/network
+	    ../modules/audio
     ];
 
 	users.users.${userSettings.username} = {
@@ -37,17 +38,8 @@
 		};
 	};
 
-	
-	security.rtkit.enable = true;
-	services = {
-		pulseaudio.enable = false;
-		pipewire = {
-			enable = true;
-			alsa.enable = true;
-			alsa.support32Bit = true;
-			pulse.enable = true;
-		};
-	};
+	# Enable standard PipeWire audio for non-VM hosts
+	audio.pipewire.enable = true;
 
 	nix = {
 		settings = {
@@ -79,10 +71,6 @@
             wev
 
             # A/V
-			alsa-utils
-			pavucontrol
-			pipewire
-			pulseaudio
             vlc
             mpv
             oculante
