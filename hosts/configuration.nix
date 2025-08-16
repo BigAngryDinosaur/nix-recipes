@@ -106,6 +106,7 @@
 	};
 
 	programs = {
+
 		dconf.enable = true;
 		_1password.enable = true;
 		_1password-gui = {

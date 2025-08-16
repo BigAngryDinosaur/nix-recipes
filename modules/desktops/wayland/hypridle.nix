@@ -30,11 +30,11 @@ in {
                 };
                 listener = [
                     {
-                        timeout = 300;
+                        timeout = 30000;
                         on-timeout = "${lockScript.outPath} lock";
                     }
                     {
-                        timeout = 5000;
+                        timeout = 500000;
                         on-timeout = "${lockScript.outPath} suspend";
                     }
                 ];

@@ -17,10 +17,14 @@ in
 
         home-manager.users.${userSettings.username} = {
             programs.zsh.envExtra = ''
-                export GEMINI_API_KEY="$(cat ${config.sops.secrets."gemini_cli/api_key".path})"
+                if [[ -f "${config.sops.secrets."gemini_cli/api_key".path}" ]]; then
+                    export GEMINI_API_KEY="$(cat ${config.sops.secrets."gemini_cli/api_key".path})"
+                fi
             '';
             programs.nushell.extraEnv = ''
-                let-env GEMINI_API_KEY = (cat '${config.sops.secrets."gemini_cli/api_key".path}')
+                if ('${config.sops.secrets."gemini_cli/api_key".path}' | path exists) {
+                    let-env GEMINI_API_KEY = (cat '${config.sops.secrets."gemini_cli/api_key".path}')
+                }
             '';
         };
     };
