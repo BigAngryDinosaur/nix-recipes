@@ -1,7 +1,8 @@
 keys:
   - &work-vm age1wxp8n5lgxh35qcde7yerd7cuc70p25cdukef3ktgqzc8mxeueajqtp36tr
+  - &home-vm age1ux5568pvazv9upyqwaayugqty6xfkp0ywftxz9yvxy527u62dq9q8ja0qw
 
 creation_rules:
   - path_regex: secrets/secrets.yaml$
     key_groups:
-      - age: [*work-vm]
+      - age: [*work-vm, *home-vm]
