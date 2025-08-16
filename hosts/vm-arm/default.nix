@@ -33,4 +33,7 @@
     obs.enable = lib.mkForce false;
     spotify.enable = lib.mkForce false;
     warp.enable = lib.mkForce true;
+    
+    # Disable Google Chrome on ARM VM
+    google-chrome.enable = lib.mkForce false;
 }
