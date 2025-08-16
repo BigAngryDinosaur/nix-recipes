@@ -12,6 +12,13 @@ in
         home-manager.users.${userSettings.username} = {
             programs.jujutsu = {
                 enable = true;
+
+                settings = {
+                    user = {
+                        name = lib.strings.toLower userSettings.name;
+                        email = userSettings.email;
+                    };
+                };
             };
         };
     };
