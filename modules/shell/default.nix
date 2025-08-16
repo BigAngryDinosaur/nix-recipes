@@ -10,6 +10,7 @@
         ./zsh.nix
         ./nushell.nix
         ./tmux.nix
+        ./jj.nix
     ];
 
     config = {
@@ -20,6 +21,7 @@
         fzf.enable = true;
         zoxide.enable = true;
         tmux.enable = true;
+        jj.enable = true;
     };
 }
 
