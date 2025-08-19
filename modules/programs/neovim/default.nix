@@ -265,10 +265,29 @@
                     nixvimInjections = true;
                     folding = false;
                     nixGrammars = true;
-                    grammarPackages =
-                        pkgs.vimPlugins.nvim-treesitter.passthru.allGrammars;
+                    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+                        asm
+                        bash
+                        c
+                        cpp
+                        css
+                        dockerfile
+                        go
+                        html
+                        javascript
+                        json
+                        lua
+                        markdown
+                        nix
+                        python
+                        rust
+                        toml
+                        typescript
+                        vim
+                        vimdoc
+                        yaml
+                    ];
                     settings = {
-                        ensure_installed = "all";
                         highlight.enable = true;
                         incremental_selection.enable = true;
                         indent.enable = true;
@@ -283,6 +302,7 @@
                         html.enable = true;
                         pyright.enable = true;
                         ts_ls.enable = true;
+                        asm_lsp.enable = true;
                     };
                 };
 
@@ -320,6 +340,32 @@
                 };
 
                 lsp-lines.enable = true;
+
+                cmp = {
+                    enable = true;
+                    settings = {
+                        sources = [
+                            { name = "nvim_lsp"; }
+                            { name = "buffer"; }
+                            { name = "path"; }
+                            { name = "luasnip"; }
+                        ];
+                        mapping = {
+                            "<C-n>" = "cmp.mapping.select_next_item()";
+                            "<C-p>" = "cmp.mapping.select_prev_item()";
+                            "<C-d>" = "cmp.mapping.scroll_docs(-4)";
+                            "<C-u>" = "cmp.mapping.scroll_docs(4)";
+                            "<C-Space>" = "cmp.mapping.complete()";
+                            "<C-e>" = "cmp.mapping.close()";
+                            "<CR>" = "cmp.mapping.confirm({ select = true })";
+                            "<Tab>" = "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_next_item() elseif luasnip.expand_or_jumpable() then luasnip.expand_or_jump() else fallback() end end, {'i', 's'})";
+                            "<S-Tab>" = "cmp.mapping(function(fallback) if cmp.visible() then cmp.select_prev_item() elseif luasnip.jumpable(-1) then luasnip.jump(-1) else fallback() end end, {'i', 's'})";
+                        };
+                        completion.completeopt = "menu,menuone,noinsert";
+                    };
+                };
+
+                luasnip.enable = true;
             };
         };
     };
