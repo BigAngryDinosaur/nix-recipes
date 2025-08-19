@@ -146,6 +146,7 @@ in
 
                         "${cam}+F".action.spawn = "wofi";
 
+                        "${cam}+I".action.spawn = "${pkgs.google-chrome}/bin/google-chrome-stable";
                         "${cms}+I".action.spawn = "${pkgs.firefox}/bin/firefox";
 
                         "Ctrl+Alt+L".action.spawn = "hyprlock";
