@@ -12,6 +12,7 @@
 	    ../modules/network
 	    ../modules/audio
         ../modules/code
+        ../modules/cloud
     ];
 
 	users.users.${userSettings.username} = {
