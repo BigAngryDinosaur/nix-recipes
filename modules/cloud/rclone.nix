@@ -79,17 +79,6 @@ in
   config = mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
     
-    # Create mount directory
-    system.activationScripts.rclone-mount-dirs = mkIf gdCfg.enable ''
-      mkdir -p ${gdCfg.mountPath}
-      chown ${userSettings.username}:users ${gdCfg.mountPath}
-      chmod 755 ${gdCfg.mountPath}
-      ${lib.optionalString gdCfg.enableSync ''
-        mkdir -p ${gdCfg.syncPath}
-        chown ${userSettings.username}:users ${gdCfg.syncPath}
-        chmod 755 ${gdCfg.syncPath}
-      ''}
-    '';
     
     
     # Google Drive sync service (alternative to mounting)

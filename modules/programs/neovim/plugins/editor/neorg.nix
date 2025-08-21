@@ -14,7 +14,7 @@
             "core.dirman" = {
                 config = {
                     workspaces = {
-                        home = "~/notes/home";
+                        home = "~/GoogleDrive/Notes/neorg";
                     };
                 };
             };
