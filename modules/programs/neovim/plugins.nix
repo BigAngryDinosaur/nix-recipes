@@ -14,6 +14,7 @@
     flash = import ./plugins/editor/flash.nix;
     telescope = import ./plugins/editor/telescope.nix;
     nvim-autopairs = import ./plugins/editor/nvim-autopairs.nix;
+    neorg = import ./plugins/editor/neorg.nix;
 
     # File management plugins
     neo-tree = import ./plugins/file-management/neo-tree.nix;

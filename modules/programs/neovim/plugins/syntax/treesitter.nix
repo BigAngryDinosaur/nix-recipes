@@ -25,7 +25,10 @@
         vim
         vimdoc
         yaml
-    ];
+    ] ++ (with pkgs.tree-sitter-grammars; [
+        tree-sitter-norg
+        tree-sitter-norg-meta
+    ]);
     settings = {
         highlight.enable = true;
         incremental_selection.enable = true;
