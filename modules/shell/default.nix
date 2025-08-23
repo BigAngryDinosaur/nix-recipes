@@ -13,6 +13,7 @@
         ./jj.nix
         ./eza.nix
         ./ohmyposh.nix
+        ./television.nix
     ];
 
     config = {
