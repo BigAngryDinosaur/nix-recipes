@@ -23,6 +23,8 @@ in
                     staged = "✓";
                     stashed = "≡";
                 };
+
+                format = "$all$direnv";
             };
         };
     };
