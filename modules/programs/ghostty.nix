@@ -1,4 +1,4 @@
-{ config, userSettings, ... }:
+{ config, userSettings, pkgs, lib, ... }:
 
 {
     home-manager.users.${userSettings.username} = {
@@ -13,6 +13,8 @@
                 keybind = [
                     "shift+enter=text:\\n"
                 ];
+            } // lib.optionalAttrs config.nushell.enable {
+                command = "${pkgs.nushell}/bin/nu";
             };
         };
     };

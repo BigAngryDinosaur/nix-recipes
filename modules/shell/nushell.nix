@@ -11,11 +11,28 @@ in
 
     config = mkIf cfg.enable {
         
-        home-manager.users.${userSettings.username} = {
+        eza.enable = true;
+        ohmyposh.enable = true;
 
+        home-manager.users.${userSettings.username} = {
             programs = {
                 nushell = {
                     enable = true;
+
+                    settings = {
+                        show_banner = false;
+                        buffer_editor = "nvim";
+                        edit_mode = "vi";
+                    };
+
+                    shellAliases = {
+                        e = "nvim";
+                        c = "clear";
+
+                        # eza
+                        l = "eza -la --icons";
+                        lt = "eza -T --icons";
+                    };
                 };
 
                 carapace.enable = true;

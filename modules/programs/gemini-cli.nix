@@ -23,7 +23,7 @@ in
             '';
             programs.nushell.extraEnv = ''
                 if ('${config.sops.secrets."gemini_cli/api_key".path}' | path exists) {
-                    let-env GEMINI_API_KEY = (cat '${config.sops.secrets."gemini_cli/api_key".path}')
+                    $env.GEMINI_API_KEY = (cat '${config.sops.secrets."gemini_cli/api_key".path}')
                 }
             '';
         };

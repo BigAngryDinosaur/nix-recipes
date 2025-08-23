@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, userSettings, ... }:
 let
     inherit (lib) mkEnableOption mkIf;
     cfg = config.starship;
@@ -9,23 +9,28 @@ in
     };
 
     config = mkIf cfg.enable {
-        programs.starship = {
-            enable = true;
-            settings = {
-                character = {
-                    success_symbol = "[›](bold green)";
-                    error_symbol = "[›](bold red)";
-                };
+        home-manager.users.${userSettings.username} = {
 
-                git_status = {
-                    deleted = "✗";
-                    modified = "✶";
-                    staged = "✓";
-                    stashed = "≡";
-                };
+            programs.starship = {
+                enable = true;
+                settings = {
+                    character = {
+                        success_symbol = "[›](bold green)";
+                        error_symbol = "[›](bold red)";
+                    };
 
-                format = "$all$direnv";
+                    git_status = {
+                        deleted = "✗";
+                        modified = "✶";
+                        staged = "✓";
+                        stashed = "≡";
+                    };
+
+                    format = "$all$direnv";
+                };
+                enableNushellIntegration = true;
             };
+
         };
     };
 }

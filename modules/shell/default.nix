@@ -11,6 +11,8 @@
         ./nushell.nix
         ./tmux.nix
         ./jj.nix
+        ./eza.nix
+        ./ohmyposh.nix
     ];
 
     config = {

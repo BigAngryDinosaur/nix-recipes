@@ -36,6 +36,9 @@ in {
                         show_symlink = true;
                     };
                 };
+
+                enableZshIntegration = mkIf config.zsh.enable true;
+                enableNushellIntegration = mkIf config.nushell.enable true;
             };
         };
     };

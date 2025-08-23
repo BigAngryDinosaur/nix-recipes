@@ -14,8 +14,9 @@ in {
             shell = pkgs.zsh;
         };
 
+        eza.enable = true;
+
         environment.systemPackages = with pkgs; [
-            eza
             fd
             jq
             bat
