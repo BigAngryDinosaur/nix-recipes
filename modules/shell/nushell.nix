@@ -11,6 +11,7 @@ in
 
     config = mkIf cfg.enable {
         
+        zellij.enable = true;
         eza.enable = true;
         ohmyposh.enable = true;
         television.enable = true;
@@ -63,6 +64,24 @@ in
                         alias fe = open-file --use-vcs-ignore
                         alias feh = open-file --show-hidden --use-vcs-ignore --ignore-vcs
                         alias fea = open-file --show-hidden
+
+
+                        # Zellij
+                        def start_zellij [] {
+                          if 'ZELLIJ' not-in ($env | columns) {
+                            if 'ZELLIJ_AUTO_ATTACH' in ($env | columns) and $env.ZELLIJ_AUTO_ATTACH == 'true' {
+                              zellij attach -c
+                            } else {
+                              zellij
+                            }
+
+                            if 'ZELLIJ_AUTO_EXIT' in ($env | columns) and $env.ZELLIJ_AUTO_EXIT == 'true' {
+                              exit
+                            }
+                          }
+                        }
+
+                        start_zellij
                     '';
                 };
 

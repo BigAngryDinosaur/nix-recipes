@@ -7,8 +7,8 @@
             enableZshIntegration = config.zsh.enable;
             settings = {
                 window-decoration = false;
-                window-padding-x = 24;
-                window-padding-y = 24;
+                window-padding-x = 6;
+                window-padding-y = 6;
                 background-blur = true;
                 keybind = [
                     "shift+enter=text:\\n"

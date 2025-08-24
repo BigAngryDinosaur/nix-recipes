@@ -14,6 +14,7 @@
         ./eza.nix
         ./ohmyposh
         ./television.nix
+        ./zellij
     ];
 
     config = {
