@@ -12,6 +12,7 @@ in
             programs.oh-my-posh = {
                 enable = true;
                 enableNushellIntegration = mkIf config.nushell.enable true;
+                settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (builtins.readFile (./. + "/themes/pure.json")));
             };
         };
     };

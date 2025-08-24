@@ -12,7 +12,7 @@
         ./tmux.nix
         ./jj.nix
         ./eza.nix
-        ./ohmyposh.nix
+        ./ohmyposh
         ./television.nix
     ];
 

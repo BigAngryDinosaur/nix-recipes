@@ -56,7 +56,7 @@ in
 
                             let file = (fd ...$fd_args | tv --preview 'bat -n --color=always {0}')
                             if ($file | is-not-empty) {
-                                e $"($file)"
+                                nvim $"($file)"
                             }
                         }
 
