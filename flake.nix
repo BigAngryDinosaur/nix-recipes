@@ -86,5 +86,9 @@
             url = "github:Mic92/sops-nix";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        claude-code-nix = {
+            url = "github:sadjow/claude-code-nix";
+        };
     };
 }

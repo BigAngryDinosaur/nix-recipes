@@ -4,6 +4,7 @@
         ./gdb.nix    
         ./devenv.nix
         ./direnv.nix
+        ./ai-assistants
     ];
 
     config = {

@@ -92,9 +92,6 @@
 
             # Development
             zig
-
-            # AI
-            claude-code
 		];
 
 	};
