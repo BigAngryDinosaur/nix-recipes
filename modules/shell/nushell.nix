@@ -37,6 +37,9 @@ in
                     };
 
                     extraConfig = ''
+                        mkdir ($nu.data-dir | path join "vendor/autoload")
+                        tv init nu | save -f ($nu.data-dir | path join "vendor/autoload/tv.nu")
+
                         # Open files
                         def open-file [--show-hidden, --ignore-vcs, --use-vcs-ignore] {
                             mut fd_args = ["-t" "f" ]
@@ -55,7 +58,7 @@ in
                                 $fd_args = ($fd_args | append ["--ignore-file" ".gitignore"])
                             }
 
-                            let file = (fd ...$fd_args | tv --preview 'bat -n --color=always {0}')
+                            let file = (fd ...$fd_args | tv --preview-command 'bat -n --color=always {0}')
                             if ($file | is-not-empty) {
                                 nvim $"($file)"
                             }
