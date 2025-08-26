@@ -3,19 +3,18 @@ layout {
         pane size=1 borderless=true {
             plugin location="zellij:tab-bar"
         }
-        pane name="code" command="nu" focus=true borderless=true
+        pane name="code" command="nu" focus=true
         pane size=1 borderless=true {
             plugin location="zellij:status-bar"
         }
     }
-
-    pane_template name="cmd" command="./cmd.nu"
 }
 keybinds {
     shared {
-        bind "Ctrl Alt Shift g" { NewPane "Down"; }
-        bind "Ctrl Super Shift g" { NewPane "Right"; }
-
-        bind "Ctrl Super Shift b" { Run "nu" "cmd.nu" "coding-assistant" "claude"; }
+        bind "Super Shift f" { 
+            Run "claude" { 
+                direction "Down" 
+            } 
+        }
     }
 }

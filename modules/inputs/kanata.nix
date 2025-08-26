@@ -51,6 +51,21 @@ in
                         )
 
                         (defalias
+                            app-single-g (switch
+                                ((layer ghostty)) (macro C-p 50 d) break
+                                () XX break
+                            )
+                            
+                            app-double-g (switch
+                                ((layer ghostty)) (macro C-p 50 r) break
+                                () XX break
+                            )
+
+                            app-single-f (switch
+                                ((layer ghostty)) M-S-f break
+                                () XX break
+                            )
+
                             ;; Layer-aware actions using switch
                             ctrl-ins (switch
                                 ((layer ghostty)) C-S-c break    ;; ctrl+shift+c on ghostty
@@ -72,6 +87,12 @@ in
                             (lctl del) C-z          200 first-release ()     ;; ctrl + delete = ctrl + z
                             (lctl lsft del) C-S-z   200 first-release ()     ;; ctrl + shift + delete = ctrl + shift + z
                             (lalt lmet) C-q         200 first-release ()     ;; alt + meta = ctrl + q
+
+                            ;; App specific
+                            (lmet lalt lsft g) @app-single-g 200 first-release () ;; single g
+                            (lctl lmet lsft g) @app-double-g 200 first-release () ;; double g
+
+                            (lmet lalt lsft f) @app-single-f 200 first-release () ;; single f
                         )
 
                         (deflayer base
