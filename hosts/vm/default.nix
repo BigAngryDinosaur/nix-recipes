@@ -41,4 +41,5 @@
 
     niri.enable = true;
     spotify.enable = lib.mkForce false;
+    keyd.enable = false;
 }
