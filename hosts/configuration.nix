@@ -13,6 +13,7 @@
 	    ../modules/audio
         ../modules/code
         ../modules/cloud
+        ../modules/inputs
     ];
 
 	users.users.${userSettings.username} = {
