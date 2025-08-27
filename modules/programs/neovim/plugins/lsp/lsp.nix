@@ -6,5 +6,6 @@
         pyright.enable = true;
         ts_ls.enable = true;
         asm_lsp.enable = true;
+        nixd.enable = true;
     };
 }
