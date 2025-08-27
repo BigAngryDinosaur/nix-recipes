@@ -165,7 +165,6 @@ in
 
                         "${cam}+F".action.spawn = "wofi";
 
-                        "${cam}+I".action.spawn = "${pkgs.google-chrome}/bin/google-chrome-stable";
                         "${cms}+I".action.spawn = "${pkgs.firefox}/bin/firefox";
 
                         "Ctrl+Alt+L".action.spawn = "hyprlock";
@@ -229,6 +228,8 @@ in
                         "${meh}+B".action.switch-focus-between-floating-and-tiling = [];
                         "${meh}+T".action.toggle-column-tabbed-display = [];
 
+                    } // lib.optionalAttrs config.google-chrome.enable {
+                        "${cam}+I".action.spawn = "${pkgs.google-chrome}/bin/google-chrome-stable";
                     };
 
                     window-rules = [

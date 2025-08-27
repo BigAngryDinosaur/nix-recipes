@@ -86,7 +86,7 @@ in
                             (lctl lsft ins) C-w     200 first-release ()     ;; ctrl + shift + insert = ctrl + w
                             (lctl del) C-z          200 first-release ()     ;; ctrl + delete = ctrl + z
                             (lctl lsft del) C-S-z   200 first-release ()     ;; ctrl + shift + delete = ctrl + shift + z
-                            (lalt lmet) C-q         200 first-release ()     ;; alt + meta = ctrl + q
+                            (lalt lmet ins) C-q     200 first-release ()     ;; alt + meta + insert = ctrl + q
 
                             ;; App specific
                             (lmet lalt lsft g) @app-single-g 200 first-release () ;; single g

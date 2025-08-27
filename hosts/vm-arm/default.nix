@@ -4,7 +4,6 @@
 {
 	imports = [
 		./hardware-configuration.nix
-        ./keyd.nix
         ../../modules/audio
 	];
 
