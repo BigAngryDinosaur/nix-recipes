@@ -18,6 +18,7 @@
         lua
         markdown
         nix
+        nu
         python
         rust
         toml
