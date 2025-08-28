@@ -44,7 +44,7 @@ in
                     # Custom keybinding configuration
                     config = ''
                         (defsrc
-                            caps a s d f g h j k l ; '
+                            caps a s d f g h j k l ; ' - + =
                             lsft z x c v b n m , . /
                             lalt lmet lctl ralt rmet rctl rsft
                             ins del
@@ -98,6 +98,7 @@ in
                             )
 
                             app-single-s (switch
+                                ((layer ghostty)) A-- break    ;; New tab
                                 () XX break
                             )
                             
@@ -106,6 +107,7 @@ in
                             )
 
                             app-single-d (switch
+                                ((layer ghostty)) A-= break    ;; New tab
                                 () XX break
                             )
                             
@@ -246,21 +248,21 @@ in
                         )
 
                         (deflayer base
-                            caps a s d f g h j k l ; '
+                            caps a s d f g h j k l ; ' - + =
                             lsft z x c v b n m , . /
                             lalt lmet lctl ralt rmet rctl rsft
                             ins del
                         )
 
                         (deflayer ghostty  
-                            caps a s d f g h j k l ; '
+                            caps a s d f g h j k l ; ' - + =
                             lsft z x c v b n m , . /
                             lalt lmet lctl ralt rmet rctl rsft
                             ins del
                         )
 
                         (deflayer browsers  
-                            caps a s d f g h j k l ; '
+                            caps a s d f g h j k l ; ' - + =
                             lsft z x c v b n m , . /
                             lalt lmet lctl ralt rmet rctl rsft
                             ins del
