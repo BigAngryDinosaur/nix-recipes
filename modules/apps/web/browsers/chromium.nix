@@ -14,6 +14,16 @@ in
             programs.chromium = {
                 enable = true;
                 package = pkgs.chromium;
+                extensions = [
+                    { id = "aeblfdkhhhdcdjpifhhbdiojplfjncoa"; } # 1Password
+                    { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
+                    { id = "dbepggeogbaibhgnhhndojpepiihcmeb"; } # Vimium
+                    { id = "mgijmajocgfcbeboacabfgobmjgjcoja"; } # Google Dictionary
+                    { id = "bgnkhhnnamicmpeenaelnjfhikgbkllg"; } # AdGuard AdBlocker
+                    { id = "kbmfpngjjgdllneeigpgjifpgocmfgmb"; } # Reddit Enhancement Suite
+                    { id = "dneaehbmnbhcippjikoajpoabadpodje"; } # Old Reddit Redirect
+                    { id = "kbfnbcaeplbcioakkpcpgfkobkghlhen"; } # Grammarly
+                ];
             };
         };
     };
