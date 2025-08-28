@@ -68,6 +68,8 @@ in
         
         stylix.targets.niri.enable = true;
 
+        stylix.targets.firefox.profileNames = [ "default" ];
+        
         stylix.targets.nixvim = {
             transparentBackground = {
                 main = true;
