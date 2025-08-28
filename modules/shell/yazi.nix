@@ -37,6 +37,12 @@ in {
                     };
                 };
 
+                keymap = {
+                    mgr.append_keymap = [
+                        { on = [ "g" "b" ]; run = "cd ~/GoogleDrive/Books/"; }
+                    ];
+                };
+
                 enableZshIntegration = mkIf config.zsh.enable true;
                 enableNushellIntegration = mkIf config.nushell.enable true;
             };
