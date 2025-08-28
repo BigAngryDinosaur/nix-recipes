@@ -43,9 +43,6 @@
 
 	# Enable standard PipeWire audio for non-VM hosts
 	audio.pipewire.enable = true;
-	
-	# Enable Google Chrome by default
-	google-chrome.enable = lib.mkDefault true;
 
 	nix = {
 		settings = {

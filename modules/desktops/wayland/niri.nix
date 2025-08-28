@@ -228,8 +228,8 @@ in
                         "${meh}+B".action.switch-focus-between-floating-and-tiling = [];
                         "${meh}+T".action.toggle-column-tabbed-display = [];
 
-                    } // lib.optionalAttrs config.google-chrome.enable {
-                        "${cam}+I".action.spawn = "${pkgs.google-chrome}/bin/google-chrome-stable";
+                    } // lib.optionalAttrs config.chromium.enable {
+                        "${cam}+I".action.spawn = "${pkgs.chromium}/bin/chromium";
                     };
 
                     window-rules = [

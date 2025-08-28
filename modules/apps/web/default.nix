@@ -1,7 +1,6 @@
 { config, ... }: {
 
     imports = [
-        ./web
-        ./stremio.nix
+        ./browsers
     ];
 }
