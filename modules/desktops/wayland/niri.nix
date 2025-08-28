@@ -165,8 +165,6 @@ in
 
                         "${cam}+F".action.spawn = "wofi";
 
-                        "${cms}+I".action.spawn = "${pkgs.firefox}/bin/firefox";
-
                         "Ctrl+Alt+L".action.spawn = "hyprlock";
 
                         "Ctrl+Q".action.close-window = [];
@@ -228,6 +226,8 @@ in
                         "${meh}+B".action.switch-focus-between-floating-and-tiling = [];
                         "${meh}+T".action.toggle-column-tabbed-display = [];
 
+                    } // lib.optionalAttrs config.firefox.enable {
+                        "${cms}+I".action.spawn = "${pkgs.firefox}/bin/firefox";
                     } // lib.optionalAttrs config.chromium.enable {
                         "${cam}+I".action.spawn = "${pkgs.chromium}/bin/chromium";
                     };

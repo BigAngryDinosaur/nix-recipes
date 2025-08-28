@@ -79,9 +79,6 @@
             mpv
             oculante
 
-            # Browsers
-			firefox
-
             # File Management
             p7zip
             zip
