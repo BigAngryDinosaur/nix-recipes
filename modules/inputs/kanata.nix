@@ -115,10 +115,12 @@ in
 
                             app-single-f (switch
                                 ((layer ghostty)) (macro C-p 50 f) break    ;; Fullscreen pane
+                                ((layer browsers)) C-l break                ;; Focus address bar
                                 () XX break
                             )
                             
                             app-double-f (switch
+                                ((layer browsers)) C-S-a break              ;; Search open tabs
                                 () XX break
                             )
 
@@ -251,6 +253,13 @@ in
                         )
 
                         (deflayer ghostty  
+                            caps a s d f g h j k l ; '
+                            lsft z x c v b n m , . /
+                            lalt lmet lctl ralt rmet rctl rsft
+                            ins del
+                        )
+
+                        (deflayer browsers  
                             caps a s d f g h j k l ; '
                             lsft z x c v b n m , . /
                             lalt lmet lctl ralt rmet rctl rsft

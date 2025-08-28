@@ -49,7 +49,7 @@ let
         {
             class = "firefox|chromium|chrome";
             title = "*";
-            layer = "base";
+            layer = "browsers";
         }
         {
             class = "com.mitchellh.ghostty";
