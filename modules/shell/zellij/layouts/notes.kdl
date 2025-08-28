@@ -1,0 +1,13 @@
+layout {
+    tab name="notes" focus=true {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane name="neorg" command="nvim" {
+            args "-c" ":Neorg workspace home"
+        }
+        pane size=1 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+}

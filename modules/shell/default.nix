@@ -8,7 +8,7 @@
         ./fzf.nix
         ./zoxide.nix
         ./zsh.nix
-        ./nushell.nix
+        ./nushell
         ./tmux.nix
         ./jj.nix
         ./eza.nix

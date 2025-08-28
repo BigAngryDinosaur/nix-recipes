@@ -164,6 +164,7 @@ in
                         "${cms}+J".action.spawn = ["sh" "-c" "${pkgs.ghostty}/bin/ghostty -e yazi"];
 
                         "${cam}+F".action.spawn = "wofi";
+                        "${cam}+K".action.spawn = ["nu" "-c" "source ~/.config/nushell/scripts/toggle-notes.nu; main"];
 
                         "Ctrl+Alt+L".action.spawn = "hyprlock";
 
@@ -235,6 +236,14 @@ in
                     window-rules = [
                         {
                             draw-border-with-background = false;
+                        }
+                        {
+                            matches = [
+                                { title = "^Notes$"; }
+                            ];
+                            open-floating = true;
+                            default-column-width.fixed = 1600;
+                            default-window-height.fixed = 1000;
                         }
                     ];
 

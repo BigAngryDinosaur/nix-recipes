@@ -6,6 +6,7 @@
             enable = true;
             enableZshIntegration = config.zsh.enable;
             settings = {
+                confirm-close-surface = false;
                 window-decoration = false;
                 window-padding-x = 6;
                 window-padding-y = 6;

@@ -1,7 +1,7 @@
 {
     enable = true;
     settings = {
-        lazy_loading = true;
+        lazy_loading = false;
         load = {
             "core.concealer" = {
                 config = {

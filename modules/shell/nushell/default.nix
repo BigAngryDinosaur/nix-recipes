@@ -92,6 +92,11 @@ in
                 carapace.enableNushellIntegration = true;
 
             };
+
+            home.file.".config/nushell/scripts" = {
+                source = ./scripts;
+                recursive = true;
+            };
         };
     };
 }
