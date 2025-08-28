@@ -23,6 +23,7 @@ in
                     { id = "kbmfpngjjgdllneeigpgjifpgocmfgmb"; } # Reddit Enhancement Suite
                     { id = "dneaehbmnbhcippjikoajpoabadpodje"; } # Old Reddit Redirect
                     { id = "kbfnbcaeplbcioakkpcpgfkobkghlhen"; } # Grammarly
+                    { id = "jlgkpaicikihijadgifklkbpdajbkhjo"; } # CrxMouse Gestures
                 ];
             };
         };
