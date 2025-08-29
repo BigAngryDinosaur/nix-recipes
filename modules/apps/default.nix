@@ -2,6 +2,9 @@
 
     imports = [
         ./web
-        ./stremio.nix
+        ./terminal
+        ./text-editors
+        ./music
+        ./video
     ];
 }
