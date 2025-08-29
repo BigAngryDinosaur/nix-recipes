@@ -8,8 +8,7 @@
         ./prompt/starship
         ./prompt/ohmyposh
         ./file-managers/yazi
-        ./version-control/git
-        ./version-control/jj
+        ./version-control
         ./utilities/eza
         ./utilities/zoxide
         ./utilities/television
@@ -24,6 +23,5 @@
         fzf.enable = true;
         zoxide.enable = true;
         tmux.enable = true;
-        jj.enable = true;
     };
 }

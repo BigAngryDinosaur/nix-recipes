@@ -4,6 +4,10 @@ let
     cfg = config.jj;
 in
 {
+    imports = [
+        ./jjui.nix
+    ];
+
     options = {
         jj.enable = mkEnableOption "Enable jj";
     };
@@ -21,5 +25,7 @@ in
                 };
             };
         };
+
+        jjui.enable = true;
     };
 }
