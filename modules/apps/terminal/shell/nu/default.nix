@@ -15,6 +15,11 @@ in
         eza.enable = true;
         ohmyposh.enable = true;
         television.enable = true;
+        zoxide.enable = true;
+        fd.enable = true;
+        jq.enable = true;
+        bat.enable = true;
+        ripgrep.enable = true;
 
         home-manager.users.${userSettings.username} = {
             programs = {

@@ -12,7 +12,8 @@ in
         home-manager.users.${userSettings.username} = {
             programs.zoxide = {
                 enable = true;
-                enableZshIntegration = true;
+                enableZshIntegration = mkIf config.zsh.enable true;
+                enableNushellIntegration = mkIf config.nushell.enable true;
             };
         };
     };

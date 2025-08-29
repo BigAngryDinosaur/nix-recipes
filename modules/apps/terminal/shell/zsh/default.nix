@@ -15,13 +15,13 @@ in {
         };
 
         eza.enable = true;
-
-        environment.systemPackages = with pkgs; [
-            fd
-            jq
-            bat
-            ripgrep
-        ];
+        starship.enable = true;
+        zoxide.enable = true;
+        fzf.enable = true;
+        fd.enable = true;
+        jq.enable = true;
+        bat.enable = true;
+        ripgrep.enable = true;
 
         programs.zsh.enable = true;
 
