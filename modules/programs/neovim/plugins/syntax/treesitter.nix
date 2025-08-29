@@ -12,6 +12,7 @@
         css
         dockerfile
         go
+        haskell
         html
         javascript
         json
