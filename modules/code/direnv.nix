@@ -14,6 +14,7 @@ in
                 enable = true;
                 enableZshIntegration = true;
                 enableNushellIntegration = true;
+                silent = true;
             };
         };
     };
