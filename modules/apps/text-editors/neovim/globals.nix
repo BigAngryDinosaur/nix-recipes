@@ -1,4 +1,4 @@
 {
     mapleader = " ";
-    maplocalleader = " ";
+    maplocalleader = ",";
 }

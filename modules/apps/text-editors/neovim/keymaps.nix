@@ -6,8 +6,18 @@
     }
     {
         key = "<leader>q";
-        action = "<CMD>q<CR>";
-        options.desc = "Quit";
+        action = "<CMD>confirm q<CR>";
+        options.desc = "Quit window";
+    }
+    {
+        key = "<leader>Q";
+        action = "<CMD>confirm qall<CR>";
+        options.desc = "Exit Neovim";
+    }
+    {
+        key = "<leader>qq";
+        action = "<CMD>q!<CR>";
+        options.desc = "Force Quit";
     }
     {
         key = "<leader>e";
