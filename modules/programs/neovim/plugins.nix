@@ -4,6 +4,7 @@
     lualine = import ./plugins/ui/lualine.nix;
     barbar = import ./plugins/ui/barbar.nix;
     web-devicons = import ./plugins/ui/web-devicons.nix;
+    which-key = import ./plugins/ui/which-key.nix;
 
     # Git plugins
     gitgutter = import ./plugins/git/gitgutter.nix;
