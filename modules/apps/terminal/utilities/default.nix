@@ -8,5 +8,6 @@
         ./jq
         ./bat
         ./ripgrep
+        ./atuin
     ];
 }

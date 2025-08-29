@@ -22,6 +22,7 @@ in {
         jq.enable = true;
         bat.enable = true;
         ripgrep.enable = true;
+        atuin.enable = true;
 
         programs.zsh.enable = true;
 

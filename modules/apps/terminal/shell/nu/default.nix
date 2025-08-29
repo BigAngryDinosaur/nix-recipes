@@ -20,6 +20,7 @@ in
         jq.enable = true;
         bat.enable = true;
         ripgrep.enable = true;
+        atuin.enable = true;
 
         home-manager.users.${userSettings.username} = {
             programs = {
