@@ -217,6 +217,7 @@ in
                         "${hyper}+A".action.reset-window-height = [];
                         "${hyper}+G".action.fullscreen-window = [];
                         "${hyper}+V".action.expand-column-to-available-width = [];
+                        "${hyper}+E".action.center-window = [];
 
                         "${meh}+Q".action.set-column-width = "-10%";
                         "${meh}+R".action.set-column-width = "+10%";
