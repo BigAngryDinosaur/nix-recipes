@@ -1,5 +1,6 @@
 {
     autoindent = true;
+    clipboard = "unnamedplus";
     conceallevel = 3;
     confirm = true;
     cursorline = true;
