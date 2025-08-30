@@ -11,11 +11,6 @@
     }
     {
         key = "<leader>Q";
-        action = "<CMD>confirm qall<CR>";
-        options.desc = "Exit Neovim";
-    }
-    {
-        key = "<leader>qq";
         action = "<CMD>q!<CR>";
         options.desc = "Force Quit";
     }
@@ -162,5 +157,92 @@
         action = "function() require('flash').toggle() end";
         lua = true;
         options = { desc = "Toggle Flash Search"; };
+    }
+
+    # UX Toggles
+    {
+        key = "<leader>uh";
+        action = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end";
+        lua = true;
+        options.desc = "Toggle inlay hints";
+    }
+    {
+        key = "<leader>uH";
+        action = "function() vim.lsp.codelens.refresh() end";
+        lua = true;
+        options.desc = "Toggle codelens";
+    }
+    {
+        key = "<leader>uc";
+        action = "function() vim.opt.conceallevel = vim.opt.conceallevel:get() == 0 and 2 or 0 end";
+        lua = true;
+        options.desc = "Toggle conceal";
+    }
+    {
+        key = "<leader>uv";
+        action = "function() vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text }) end";
+        lua = true;
+        options.desc = "Toggle diagnostics virtual text";
+    }
+    {
+        key = "<leader>uV";
+        action = "function() vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines }) end";
+        lua = true;
+        options.desc = "Toggle diagnostics virtual lines";
+    }
+
+    # LSP Commands
+    {
+        key = "<leader>li";
+        action = "<CMD>LspInfo<CR>";
+        options.desc = "LSP info";
+    }
+    {
+        key = "<leader>lf";
+        action = "function() vim.lsp.buf.format() end";
+        lua = true;
+        options.desc = "Format document";
+    }
+    {
+        key = "<leader>lS";
+        action = "function() vim.lsp.buf.workspace_symbol() end";
+        lua = true;
+        options.desc = "Symbols outline";
+    }
+    {
+        key = "<leader>ls";
+        action = "function() vim.lsp.buf.document_symbol() end";
+        lua = true;
+        options.desc = "Document symbols";
+    }
+    {
+        key = "<leader>ld";
+        action = "function() vim.diagnostic.open_float() end";
+        lua = true;
+        options.desc = "Line diagnostics";
+    }
+    {
+        key = "<leader>lD";
+        action = "function() vim.diagnostic.setloclist() end";
+        lua = true;
+        options.desc = "All diagnostics";
+    }
+    {
+        key = "<leader>la";
+        action = "function() vim.lsp.buf.code_action() end";
+        lua = true;
+        options.desc = "Code actions";
+    }
+    {
+        key = "<leader>lA";
+        action = "function() vim.lsp.buf.code_action({ context = { only = { 'source' } } }) end";
+        lua = true;
+        options.desc = "Source code actions";
+    }
+    {
+        key = "<leader>lh";
+        action = "function() vim.lsp.buf.signature_help() end";
+        lua = true;
+        options.desc = "Signature help";
     }
 ]

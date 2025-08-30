@@ -15,6 +15,7 @@
             globals = import ./globals.nix;
             keymaps = import ./keymaps.nix;
             plugins = import ./plugins.nix { inherit pkgs; };
+            colorschemes = import ./colorschemes.nix;
         };
     };
 }

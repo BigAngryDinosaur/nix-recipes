@@ -71,6 +71,7 @@ in
         stylix.targets.firefox.profileNames = [ "default" ];
         
         stylix.targets.nixvim = {
+            enable = false;
             transparentBackground = {
                 main = true;
                 signColumn = true;
