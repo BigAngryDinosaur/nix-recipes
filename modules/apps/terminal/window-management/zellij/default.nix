@@ -11,6 +11,9 @@ in
         home-manager.users.${userSettings.username} = {
             programs.zellij = {
                 enable = true;
+                settings = {
+                    default_shell = "nu";
+                };
             };
 
             home.file.".config/zellij/layouts" = {
