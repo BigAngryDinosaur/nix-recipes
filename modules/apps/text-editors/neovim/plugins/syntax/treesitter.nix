@@ -18,6 +18,8 @@
         json
         lua
         markdown
+        nim
+        nim_format_string
         nix
         nu
         python

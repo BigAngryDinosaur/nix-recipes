@@ -13,6 +13,10 @@
         asm_lsp.enable = true;
         nixd.enable = true;
         nushell.enable = true;
+        nim_langserver = {
+            enable = true;
+            package = null;
+        };
         hls = {
             enable = true;
             installGhc = false;
