@@ -51,8 +51,8 @@ in
         
         vfsCacheMode = mkOption {
           type = types.enum [ "off" "minimal" "writes" "full" ];
-          default = "writes";
-          description = "VFS cache mode for better performance";
+          default = "full";
+          description = "VFS cache mode for better performance (full recommended for Google Drive)";
         };
         
         syncInterval = mkOption {
@@ -77,7 +77,7 @@ in
   };
   
   config = mkIf cfg.enable {
-    environment.systemPackages = [ cfg.package ];
+    environment.systemPackages = [ cfg.package pkgs.util-linux ];
     
     
     
@@ -128,10 +128,10 @@ in
     };
     
     # Enable FUSE for mounting
-    programs.fuse.userAllowOther = mkIf (gdCfg.enable && gdCfg.autoMount) true;
+    programs.fuse.userAllowOther = mkIf gdCfg.enable true;
     
     # Add user to fuse group if needed
-    users.users.${userSettings.username} = mkIf (gdCfg.enable && gdCfg.autoMount) {
+    users.users.${userSettings.username} = mkIf gdCfg.enable {
       extraGroups = [ "fuse" ];
     };
     
@@ -143,13 +143,20 @@ in
       systemd.user.services.rclone-gdrive-mount = mkIf (gdCfg.enable && gdCfg.autoMount) {
         Unit = {
           Description = "Mount Google Drive via rclone";
-          After = [ "graphical-session.target" ];
+          After = [ "graphical-session.target" "network-online.target" ];
+          Wants = [ "network-online.target" ];
         };
         
         Service = {
-          Type = "notify";
+          Type = "exec";
           ExecStartPre = "${pkgs.coreutils}/bin/mkdir -p ${gdCfg.mountPath}";
-          ExecStart = "${cfg.package}/bin/rclone mount ${gdCfg.remoteName}:${gdCfg.remotePath} ${gdCfg.mountPath} --vfs-cache-mode=${gdCfg.vfsCacheMode}${lib.optionalString gdCfg.allowOther " --allow-other"}";
+          ExecStart = "${pkgs.writeShellScript "rclone-mount" ''
+            export PATH="${lib.makeBinPath [ pkgs.fuse pkgs.util-linux ]}:$PATH"
+            exec ${cfg.package}/bin/rclone mount ${gdCfg.remoteName}:${gdCfg.remotePath} ${gdCfg.mountPath} \
+              --vfs-cache-mode=${gdCfg.vfsCacheMode} \
+              --allow-non-empty \
+              --log-level=INFO
+          ''}";
           ExecStop = "${pkgs.fuse}/bin/fusermount -u ${gdCfg.mountPath}";
           Restart = "on-failure";
           RestartSec = "10s";
