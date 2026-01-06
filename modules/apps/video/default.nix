@@ -7,5 +7,6 @@
     config = {
         obs.enable = true;
         ffmpeg.enable = true;
+        stremio.enable = true;
     };
 }

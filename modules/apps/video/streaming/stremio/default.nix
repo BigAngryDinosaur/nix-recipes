@@ -1,6 +1,17 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }:
+let
+    inherit (lib) mkEnableOption mkIf;
 
-    environment.systemPackages = [
-        pkgs.stremio
-    ];
+    cfg = config.stremio;
+in
+{
+    options = {
+        stremio.enable = mkEnableOption "Enable Stremio";
+    };
+
+    config = mkIf cfg.enable {
+        environment.systemPackages = [
+            pkgs.stremio
+        ];
+    };
 }

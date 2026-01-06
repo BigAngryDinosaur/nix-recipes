@@ -40,4 +40,5 @@
 
     niri.enable = true;
     spotify.enable = lib.mkForce false;
+    stremio.enable = lib.mkForce false;
 }
