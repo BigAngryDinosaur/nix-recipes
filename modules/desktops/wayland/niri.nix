@@ -149,6 +149,17 @@ in
                                 };
                             };
                         }
+                        else if host.name == "mb-arm" then
+                        {
+                            "${toString monitors.main}" = {
+                                scale = 1.50;
+                                mode = {
+                                    width = 3840;
+                                    height = 2160;
+                                    refresh = 60.000;
+                                };
+                            };
+                        }
                         else 
                             abort "Invalid host"
                     );

@@ -96,6 +96,35 @@ in
             niri.nixosModules.niri
         ];
     };
+
+    mb-arm = lib.nixosSystem rec {
+        system = "aarch64-linux";
+        specialArgs = {
+            inherit inputs userSettings systemSettings;
+            pkgs-stable = import nixpkgs-stable {
+                system = "aarch64-linux";
+                config.allowUnfree = true;
+            };
+            host = {
+                name = "mb-arm";
+                monitors = {
+                    main = "Virtual-1";
+                };
+            };
+        };
+        modules = [
+            ./mb-arm
+            ./configuration.nix
+
+            home-manager.nixosModules.home-manager {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+            }
+
+            stylix.nixosModules.stylix
+            niri.nixosModules.niri
+        ];
+    };
 }
 
 
