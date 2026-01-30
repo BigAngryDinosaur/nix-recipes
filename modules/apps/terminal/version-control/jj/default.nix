@@ -22,6 +22,13 @@ in
                         name = lib.strings.toLower userSettings.name;
                         email = userSettings.email;
                     };
+
+                    ui.default-command = "status";
+
+                    aliases = {
+                        l = ["log" "--no-pager"];
+                        lm = ["log" "--no-pager" "--revisions" "author(\"${userSettings.email}\") | author(\"${lib.strings.toLower userSettings.name}\")"];
+                    };
                 };
             };
         };
