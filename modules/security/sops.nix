@@ -14,8 +14,7 @@ in
 
         secrets."gemini_cli/api_key" = {};
         secrets."nix/github_pat" = {
-            owner = "root";
-            group = "root";
+            group = "nixbld";
             mode = "0440";
         };
     };
