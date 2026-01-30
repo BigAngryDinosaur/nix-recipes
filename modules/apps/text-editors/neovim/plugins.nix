@@ -22,7 +22,6 @@
 
     # Syntax plugins
     treesitter = import ./plugins/syntax/treesitter.nix { inherit pkgs; };
-    treesitter-refactor = import ./plugins/syntax/treesitter-refactor.nix;
 
     # LSP plugins
     lsp = import ./plugins/lsp/lsp.nix;

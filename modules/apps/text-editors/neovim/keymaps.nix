@@ -126,68 +126,58 @@
     {
         key = "s";
         mode = [ "n" "x" "o" ];
-        action = "function() require('flash').jump() end";
-        lua = true;
+        action.__raw = "function() require('flash').jump() end";
         options = { desc = "Flash"; };
     }
     {
         key = "S";
         mode = [ "n" "x" "o" ];
-        action = "function() require('flash').treesitter() end";
-        lua = true;
+        action.__raw = "function() require('flash').treesitter() end";
         options = { desc = "Flash Treesitter"; };
     }
     {
         key = "r";
         mode = "o";
-        action = "function() require('flash').remote() end";
-        lua = true;
+        action.__raw = "function() require('flash').remote() end";
         options = { desc = "Remote Flash"; };
     }
     {
         key = "R";
         mode = [ "o" "x" ];
-        action = "function() require('flash').treesitter_search() end";
-        lua = true;
+        action.__raw = "function() require('flash').treesitter_search() end";
         options = { desc = "Treesitter Search"; };
     }
     {
         key = "<c-s>";
         mode = "c";
-        action = "function() require('flash').toggle() end";
-        lua = true;
+        action.__raw = "function() require('flash').toggle() end";
         options = { desc = "Toggle Flash Search"; };
     }
 
     # UX Toggles
     {
         key = "<leader>uh";
-        action = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end";
-        lua = true;
+        action.__raw = "function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end";
         options.desc = "Toggle inlay hints";
     }
     {
         key = "<leader>uH";
-        action = "function() vim.lsp.codelens.refresh() end";
-        lua = true;
+        action.__raw = "function() vim.lsp.codelens.refresh() end";
         options.desc = "Toggle codelens";
     }
     {
         key = "<leader>uc";
-        action = "function() vim.opt.conceallevel = vim.opt.conceallevel:get() == 0 and 2 or 0 end";
-        lua = true;
+        action.__raw = "function() vim.opt.conceallevel = vim.opt.conceallevel:get() == 0 and 2 or 0 end";
         options.desc = "Toggle conceal";
     }
     {
         key = "<leader>uv";
-        action = "function() vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text }) end";
-        lua = true;
+        action.__raw = "function() vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text }) end";
         options.desc = "Toggle diagnostics virtual text";
     }
     {
         key = "<leader>uV";
-        action = "function() vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines }) end";
-        lua = true;
+        action.__raw = "function() vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines }) end";
         options.desc = "Toggle diagnostics virtual lines";
     }
 
@@ -199,50 +189,42 @@
     }
     {
         key = "<leader>lf";
-        action = "function() vim.lsp.buf.format() end";
-        lua = true;
+        action.__raw = "function() vim.lsp.buf.format() end";
         options.desc = "Format document";
     }
     {
         key = "<leader>lS";
-        action = "function() vim.lsp.buf.workspace_symbol() end";
-        lua = true;
+        action.__raw = "function() vim.lsp.buf.workspace_symbol() end";
         options.desc = "Symbols outline";
     }
     {
         key = "<leader>ls";
-        action = "function() vim.lsp.buf.document_symbol() end";
-        lua = true;
+        action.__raw = "function() vim.lsp.buf.document_symbol() end";
         options.desc = "Document symbols";
     }
     {
         key = "<leader>ld";
-        action = "function() vim.diagnostic.open_float() end";
-        lua = true;
+        action.__raw = "function() vim.diagnostic.open_float() end";
         options.desc = "Line diagnostics";
     }
     {
         key = "<leader>lD";
-        action = "function() vim.diagnostic.setloclist() end";
-        lua = true;
+        action.__raw = "function() vim.diagnostic.setloclist() end";
         options.desc = "All diagnostics";
     }
     {
         key = "<leader>la";
-        action = "function() vim.lsp.buf.code_action() end";
-        lua = true;
+        action.__raw = "function() vim.lsp.buf.code_action() end";
         options.desc = "Code actions";
     }
     {
         key = "<leader>lA";
-        action = "function() vim.lsp.buf.code_action({ context = { only = { 'source' } } }) end";
-        lua = true;
+        action.__raw = "function() vim.lsp.buf.code_action({ context = { only = { 'source' } } }) end";
         options.desc = "Source code actions";
     }
     {
         key = "<leader>lh";
-        action = "function() vim.lsp.buf.signature_help() end";
-        lua = true;
+        action.__raw = "function() vim.lsp.buf.signature_help() end";
         options.desc = "Signature help";
     }
 ]

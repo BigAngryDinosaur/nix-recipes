@@ -7,7 +7,6 @@
     # Disable ALL audio systems
     services.pipewire.enable = lib.mkForce false;
     services.pulseaudio.enable = lib.mkForce false;
-    hardware.pulseaudio.enable = lib.mkForce false;
     
     # Bare minimum ALSA
     hardware.alsa.enable = true;
