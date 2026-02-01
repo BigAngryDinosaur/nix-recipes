@@ -141,7 +141,7 @@ in
                         else if host.name == "vm-arm" then
                         {
                             "${toString monitors.main}" = {
-                                scale = 1.00;
+                                scale = 1.75;
                                 mode = {
                                     width = 3840;
                                     height = 2160;

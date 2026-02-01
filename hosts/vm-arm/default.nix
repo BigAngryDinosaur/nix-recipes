@@ -25,8 +25,7 @@
 		graphics.enable = true;
 	};
 
-    # Enable VM-optimized audio to fix stuttering
-    audio.vm.enable = true;
+    audio.minimal-alsa.enable = true;
 
     niri.enable = true;
     obs.enable = lib.mkForce false;
