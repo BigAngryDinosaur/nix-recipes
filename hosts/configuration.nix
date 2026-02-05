@@ -82,6 +82,7 @@
             zip
             unzip
             unrar
+            pcmanfm
 
             # Development
             zig
