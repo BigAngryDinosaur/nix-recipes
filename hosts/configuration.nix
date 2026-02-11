@@ -57,7 +57,7 @@
 	};
 
 	system = {
-		stateVersion = "25.05";
+		stateVersion = "25.11";
 	};
 
     console = {
@@ -75,7 +75,7 @@
             # A/V
             vlc
             mpv
-            oculante
+            xnviewmp
 
             # File Management
             p7zip
@@ -112,7 +112,7 @@
                 EDITOR = "${userSettings.editor}";
             };
 
-			stateVersion = "25.05";
+			stateVersion = "25.11";
 		};
 
 		programs = {

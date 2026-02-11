@@ -11,7 +11,7 @@ in
     config = mkIf cfg.enable {
         home-manager.users.${userSettings.username} = {
             home.packages = [
-                inputs.claude-code-nix.packages.${pkgs.system}.default
+                inputs.claude-code-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
             ];
         };
     };

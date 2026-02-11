@@ -33,7 +33,7 @@ in
                 xwayland
                 nwg-look
 
-                inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default
+                inputs.rose-pine-hyprcursor.packages.${pkgs.stdenv.hostPlatform.system}.default
             ];
         };
 
@@ -45,12 +45,12 @@ in
                 enable = true;
                 xwayland.enable = true;
 
-                package = hyprland.packages.${pkgs.system}.hyprland;
+                package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
                 portalPackage =
-                    hyprland.packages.${pkgs.system}.xdg-desktop-portal-hyprland;
+                    hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
 
                 #plugins = [ 
-                #    inputs.hyprspace.packages.${pkgs.system}.Hyprspace
+                #    inputs.hyprspace.packages.${pkgs.stdenv.hostPlatform.system}.Hyprspace
                 #];
 
                 settings = {

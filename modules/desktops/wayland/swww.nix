@@ -12,7 +12,7 @@ in
     config = mkIf cfg.enable {
         
         environment.systemPackages = [
-            inputs.swww.packages.${pkgs.system}.swww
+            inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
         ];
     };
 }
