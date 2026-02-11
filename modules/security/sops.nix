@@ -13,6 +13,7 @@ in
         age.keyFile = keyFile;
 
         secrets."gemini_cli/api_key" = {};
+        secrets."openrouter/api_key" = {};
         secrets."nix/github_pat" = {
             group = "nixbld";
             mode = "0440";

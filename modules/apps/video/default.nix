@@ -2,6 +2,7 @@
     imports = [
         ./editing/obs
         ./editing/ffmpeg
+        ./streaming/stremio
     ];
 
     config = {
