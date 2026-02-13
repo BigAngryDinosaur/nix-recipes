@@ -1,4 +1,4 @@
-{ config, lib, pkgs, userSettings, ... }:
+{ config, lib, pkgs, userSettings, inputs, ... }:
 let
     inherit (lib) mkEnableOption mkIf;
 in
@@ -18,7 +18,7 @@ in
             # Clean up stale oh-my-posh init files from nushell vendor/autoload
             # These versioned files (init.*.nu) are left behind after upgrades
             # and reference old Nix store paths that no longer exist
-            home.activation.cleanOhMyPoshNushellCache = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+            home.activation.cleanOhMyPoshNushellCache = inputs.home-manager.lib.hm.dag.entryAfter [ "writeBoundary" ] ''
                 rm -f $HOME/.local/share/nushell/vendor/autoload/init.*.nu
             '';
         };
