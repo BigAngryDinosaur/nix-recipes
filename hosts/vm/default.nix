@@ -36,7 +36,8 @@
 	services.xserver.videoDrivers = ["nvidia"];
 
     # Enable VM-optimized audio to fix stuttering
-    audio.vm.enable = true;
+    #audio.vm.enable = true;
+    audio.vm-pipewire.enable = true;
 
     niri.enable = true;
     spotify.enable = lib.mkForce false;
