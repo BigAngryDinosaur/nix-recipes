@@ -2,17 +2,17 @@
 let
     inherit (lib) mkEnableOption mkIf;
 
-    cfg = config.swww;
+    cfg = config.awww;
 in
 {
     options = {
-        swww.enable = mkEnableOption "Enable swww";
+        awww.enable = mkEnableOption "Enable awww";
     };
 
     config = mkIf cfg.enable {
         
         environment.systemPackages = [
-            inputs.swww.packages.${pkgs.stdenv.hostPlatform.system}.swww
+            inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
         ];
     };
 }

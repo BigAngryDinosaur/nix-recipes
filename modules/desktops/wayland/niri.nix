@@ -16,7 +16,7 @@ in
 
         wofi.enable = true;
         waybar.enable = true;
-        swww.enable = true;
+        awww.enable = true;
 
         programs.niri = {
             enable = true;
@@ -60,8 +60,8 @@ in
                     spawn-at-startup = [
                         (makeCommand "hyprlock")
                         (makeCommand "waybar")
-                        (makeCommand "swww-daemon")
-                        (makeCommand "swww-daemon img $HOME/Pictures/green_leaves.jpg")
+                        (makeCommand "awww-daemon")
+                        (makeCommand "awww img $HOME/Pictures/green_leaves.jpg")
                     ];
 
                     input = {

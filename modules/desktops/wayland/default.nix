@@ -5,7 +5,7 @@
         ./hyprland.nix
         ./niri.nix
         ./wofi.nix
-        ./swww.nix
+        ./awww.nix
         ./waybar.nix
         ./hyprpaper.nix
         ./hypridle.nix
